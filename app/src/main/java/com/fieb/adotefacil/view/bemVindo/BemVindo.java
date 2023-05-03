@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.fieb.adotefacil.R;
-import com.fieb.adotefacil.view.bemVindo.principal.Principal;
+import com.fieb.adotefacil.view.principal.Principal;
 
 public class BemVindo extends AppCompatActivity {
 

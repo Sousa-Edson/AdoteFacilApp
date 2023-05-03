@@ -1,4 +1,4 @@
-package com.fieb.adotefacil.view.bemVindo.principal.ui.slideshow;
+package com.fieb.adotefacil.view.principal.ui.slideshow;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -1,4 +1,4 @@
-package com.fieb.adotefacil.view.bemVindo.principal.ui.gallery;
+package com.fieb.adotefacil.view.principal.ui.gallery;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

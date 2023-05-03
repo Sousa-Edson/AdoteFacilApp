@@ -1,10 +1,13 @@
-package com.fieb.adotefacil.view.bemVindo.principal;
+package com.fieb.adotefacil.view.principal;
 
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.fieb.adotefacil.R;
+import com.fieb.adotefacil.adapter.AdapterAnuncio;
+import com.fieb.adotefacil.model.Anuncio;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -14,8 +17,13 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.fieb.adotefacil.databinding.ActivityPrincipalBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Principal extends AppCompatActivity {
 
@@ -48,19 +56,49 @@ public class Principal extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_principal);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.principal, menu);
+        preencheTela();
         return true;
     }
 
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_principal);
+        Toast.makeText(Principal.this, "onSupportNavigateUp", Toast.LENGTH_SHORT).show();
+
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+
+    }
+    public void preencheTela(){
+// configurar o recyclerView
+        RecyclerView recyclerView_anuncios = findViewById(R.id.recyclerView);
+        recyclerView_anuncios.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        recyclerView_anuncios.setHasFixedSize(true);
+//configurar o adapter
+        List<Anuncio> listaAnuncios = new ArrayList<>();
+
+        AdapterAnuncio adapterAnuncio = new AdapterAnuncio(this,listaAnuncios);
+        recyclerView_anuncios.setAdapter(adapterAnuncio);
+
+        Anuncio anuncio1 = new Anuncio(
+                R.drawable.tiger,
+                "Tigre",
+                "Tigres têm corpos musculosos com membros anteriores poderosos, " +
+                        "grandes cabeças, caudas longas e garras enormes. A pelagem é densa e pesada;" +
+                        " a varia entre tons de laranja e marrom com áreas ventrais brancas e listras " +
+                        "pretas verticais distintas, cujos padrões são únicos para cada indivíduo.",
+                "02/05/2023"
+        );
+        listaAnuncios.add(anuncio1);
+
+        Anuncio anuncio = new Anuncio();
     }
 }
