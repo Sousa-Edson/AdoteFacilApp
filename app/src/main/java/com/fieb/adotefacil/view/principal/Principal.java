@@ -97,8 +97,21 @@ public class Principal extends AppCompatActivity {
                         "pretas verticais distintas, cujos padrões são únicos para cada indivíduo.",
                 "02/05/2023"
         );
-        listaAnuncios.add(anuncio1);
-
+//        listaAnuncios.add(anuncio1);
+        for (int i = 0; i <10 ; i++) {
         Anuncio anuncio = new Anuncio();
+        anuncio.setFotoAnuncio(   R.drawable.tiger);
+        anuncio.setNomeAnuncio(  "Tigre");
+        anuncio.setDescricaoAnuncio(  "Tigres têm corpos musculosos com membros anteriores poderosos, " +
+                "grandes cabeças, caudas longas e garras enormes. A pelagem é densa e pesada;" +
+                " a varia entre tons de laranja e marrom com áreas ventrais brancas e listras " +
+                "pretas verticais distintas, cujos padrões são únicos para cada indivíduo.");
+        anuncio.setDataAnuncio(   "02/05/2023");
+
+
+            anuncio.setNomeAnuncio(  "Tigre "+i);
+            listaAnuncios.add(anuncio);
+        }
+        System.out.println("EXIBINDO ");
     }
 }
