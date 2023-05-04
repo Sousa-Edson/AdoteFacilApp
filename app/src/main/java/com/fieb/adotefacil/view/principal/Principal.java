@@ -59,6 +59,10 @@ public class Principal extends AppCompatActivity {
 
 
     }
+    public void onResume(Bundle savedInstanceState){
+        super.onResume();
+//        Toast.makeText(Principal.this, "resume", Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -71,7 +75,7 @@ public class Principal extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_principal);
-        Toast.makeText(Principal.this, "onSupportNavigateUp", Toast.LENGTH_SHORT).show();
+
 
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
@@ -99,14 +103,14 @@ public class Principal extends AppCompatActivity {
         );
 //        listaAnuncios.add(anuncio1);
         for (int i = 0; i <10 ; i++) {
-        Anuncio anuncio = new Anuncio();
-        anuncio.setFotoAnuncio(   R.drawable.tiger);
-        anuncio.setNomeAnuncio(  "Tigre");
-        anuncio.setDescricaoAnuncio(  "Tigres têm corpos musculosos com membros anteriores poderosos, " +
-                "grandes cabeças, caudas longas e garras enormes. A pelagem é densa e pesada;" +
-                " a varia entre tons de laranja e marrom com áreas ventrais brancas e listras " +
-                "pretas verticais distintas, cujos padrões são únicos para cada indivíduo.");
-        anuncio.setDataAnuncio(   "02/05/2023");
+            Anuncio anuncio = new Anuncio();
+            anuncio.setFotoAnuncio(   R.drawable.tiger);
+            anuncio.setNomeAnuncio(  "Tigre");
+            anuncio.setDescricaoAnuncio(  "Tigres têm corpos musculosos com membros anteriores poderosos, " +
+                    "grandes cabeças, caudas longas e garras enormes. A pelagem é densa e pesada;" +
+                    " a varia entre tons de laranja e marrom com áreas ventrais brancas e listras " +
+                    "pretas verticais distintas, cujos padrões são únicos para cada indivíduo.");
+            anuncio.setDataAnuncio(   "02/05/2023");
 
 
             anuncio.setNomeAnuncio(  "Tigre "+i);
