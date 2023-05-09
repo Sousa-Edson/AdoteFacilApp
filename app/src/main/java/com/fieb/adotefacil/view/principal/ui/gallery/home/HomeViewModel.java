@@ -1,4 +1,4 @@
-package com.fieb.adotefacil.view.principal.ui.home;
+package com.fieb.adotefacil.view.principal.ui.gallery.home;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

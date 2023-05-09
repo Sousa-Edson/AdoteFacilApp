@@ -3,11 +3,10 @@ package com.fieb.adotefacil.view.principal;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
-import android.widget.Toast;
 
 import com.fieb.adotefacil.R;
-import com.fieb.adotefacil.adapter.AdapterAnuncio;
-import com.fieb.adotefacil.model.Anuncio;
+import com.fieb.adotefacil.adapter.AdapterEvento;
+import com.fieb.adotefacil.model.Evento;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -83,16 +82,16 @@ public class Principal extends AppCompatActivity {
     }
     public void preencheTela(){
 // configurar o recyclerView
-        RecyclerView recyclerView_anuncios = findViewById(R.id.recyclerView);
-        recyclerView_anuncios.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
-        recyclerView_anuncios.setHasFixedSize(true);
+        RecyclerView recyclerView_Eventos = findViewById(R.id.recyclerView);
+        recyclerView_Eventos.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        recyclerView_Eventos.setHasFixedSize(true);
 //configurar o adapter
-        List<Anuncio> listaAnuncios = new ArrayList<>();
+        List<Evento> listaEventos = new ArrayList<>();
 
-        AdapterAnuncio adapterAnuncio = new AdapterAnuncio(this,listaAnuncios);
-        recyclerView_anuncios.setAdapter(adapterAnuncio);
+        AdapterEvento adapterEvento = new AdapterEvento(this, listaEventos);
+        recyclerView_Eventos.setAdapter(adapterEvento);
 
-        Anuncio anuncio1 = new Anuncio(
+        Evento evento1 = new Evento(
                 R.drawable.tiger,
                 "Tigre",
                 "Tigres têm corpos musculosos com membros anteriores poderosos, " +
@@ -101,21 +100,23 @@ public class Principal extends AppCompatActivity {
                         "pretas verticais distintas, cujos padrões são únicos para cada indivíduo.",
                 "02/05/2023"
         );
-//        listaAnuncios.add(anuncio1);
+//        listaEventos.add(Evento1);
         for (int i = 0; i <10 ; i++) {
-            Anuncio anuncio = new Anuncio();
-            anuncio.setFotoAnuncio(   R.drawable.tiger);
-            anuncio.setNomeAnuncio(  "Tigre");
-            anuncio.setDescricaoAnuncio(  "Tigres têm corpos musculosos com membros anteriores poderosos, " +
+            
+            Evento evento = new Evento();
+            evento.setFotoEvento(   R.drawable.tiger);
+            evento.setNomeEvento(  "Tigre");
+            evento.setDescricaoEvento(  "Tigres têm corpos musculosos com membros anteriores poderosos, " +
                     "grandes cabeças, caudas longas e garras enormes. A pelagem é densa e pesada;" +
                     " a varia entre tons de laranja e marrom com áreas ventrais brancas e listras " +
                     "pretas verticais distintas, cujos padrões são únicos para cada indivíduo.");
-            anuncio.setDataAnuncio(   "02/05/2023");
+            evento.setDataEvento(   "02/05/2023");
 
 
-            anuncio.setNomeAnuncio(  "Tigre "+i);
-            listaAnuncios.add(anuncio);
+            evento.setNomeEvento(  "Tigre "+i);
+            listaEventos.add(evento);
         }
+        
         System.out.println("EXIBINDO ");
     }
 }
