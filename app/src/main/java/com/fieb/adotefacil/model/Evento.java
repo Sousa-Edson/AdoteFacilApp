@@ -9,7 +9,11 @@ public class Evento {
 
     public Evento() {
     }
-
+    public Evento( String nomeEvento, String descricaoEvento, String dataEvento) {
+        this.nomeEvento = nomeEvento;
+        this.descricaoEvento = descricaoEvento;
+        this.dataEvento = dataEvento;
+    }
     public Evento(int fotoEvento, String nomeEvento, String descricaoEvento, String dataEvento) {
         this.fotoEvento = fotoEvento;
         this.nomeEvento = nomeEvento;
