@@ -23,14 +23,14 @@ public class EventoController {
                 evento.setCamingoFotoEvento(rs.getString(4));
                // evento.setFotoEvento(Integer.parseInt(evento.getCamingoFotoEvento()));
                 list.add(evento);
-                System.out.println("MOBO NOME:::::: "+evento.getCamingoFotoEvento());
+                System.out.println("MOBO getCamingoFotoEvento:::::: "+evento.getCamingoFotoEvento());
             }
-            System.out.println("MOBO TRY:::::: ");
+          //  System.out.println("MOBO TRY:::::: ");
         } catch (Exception e) {
             e.getMessage();
             System.out.println("MOBO Exception:::::: "+e);
         }
-        System.out.println("MOBO OLA :::::: "+list);
+     //   System.out.println("MOBO OLA :::::: "+list);
 //        list.add(new Evento("Teste","Descrição evento","12/12/2012"));
         return list;
     }

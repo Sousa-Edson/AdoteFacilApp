@@ -1,5 +1,8 @@
 package com.fieb.adotefacil.adapter;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,14 +12,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.fieb.adotefacil.R;
 import com.fieb.adotefacil.model.Evento;
 import com.fieb.adotefacil.view.principal.Principal;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterEvento extends RecyclerView.Adapter<AdapterEvento.EventoViewHolder> {
     private List<Evento> eventos;
+    private ArrayList<Uri> fotos;
     public AdapterEvento(Principal mainActivity, List<Evento> eventos) {
         this.eventos = eventos;
     }
@@ -29,9 +36,18 @@ public class AdapterEvento extends RecyclerView.Adapter<AdapterEvento.EventoView
 
     @Override
     public void onBindViewHolder(@NonNull AdapterEvento.EventoViewHolder holder, int position) {
-        holder.foto.setImageResource(eventos.get(position).getFotoEvento());
+        Evento fotos = eventos.get(position);
+        String imageUrl= fotos.getCamingoFotoEvento();
+        Glide.with(holder.itemView.getContext()).load(imageUrl).into(holder.foto);
+//        File image = new File(patch);
+//        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+//        Bitmap bitmap = BitmapFactory.decodeFile(image.getAbsolutePath(),bmOptions);
+//        holder.foto.setImageBitmap(bitmap);
+//        System.out.println("MOBO bitmap::::: "+bitmap);
+
+       // holder.foto.setImageResource(eventos.get(position).getFotoEvento());
         holder.nome.setText(eventos.get(position).getNomeEvento());
-        holder.descricao.setText(eventos.get(position).getDescricaoEvento());
+       // holder.descricao.setText(eventos.get(position).getDescricaoEvento());
         holder.preco.setText(eventos.get(position).getDataEvento());
     }
 
