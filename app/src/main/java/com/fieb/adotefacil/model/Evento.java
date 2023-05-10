@@ -3,22 +3,28 @@ package com.fieb.adotefacil.model;
 public class Evento {
 
     int fotoEvento;
+    String camingoFotoEvento;
     String nomeEvento;
     String descricaoEvento;
     String dataEvento;
 
     public Evento() {
     }
-    public Evento( String nomeEvento, String descricaoEvento, String dataEvento) {
-        this.nomeEvento = nomeEvento;
-        this.descricaoEvento = descricaoEvento;
-        this.dataEvento = dataEvento;
-    }
+
     public Evento(int fotoEvento, String nomeEvento, String descricaoEvento, String dataEvento) {
         this.fotoEvento = fotoEvento;
         this.nomeEvento = nomeEvento;
         this.descricaoEvento = descricaoEvento;
         this.dataEvento = dataEvento;
+    }
+
+
+    public String getCamingoFotoEvento() {
+        return camingoFotoEvento;
+    }
+
+    public void setCamingoFotoEvento(String camingoFotoEvento) {
+        this.camingoFotoEvento = camingoFotoEvento;
     }
 
     public int getFotoEvento() {

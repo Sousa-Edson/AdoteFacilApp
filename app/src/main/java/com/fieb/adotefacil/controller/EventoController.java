@@ -20,9 +20,10 @@ public class EventoController {
                 evento.setDataEvento(rs.getString(1));
                 evento.setNomeEvento(rs.getString(2));
                 evento.setDescricaoEvento(rs.getString(3));
-               // evento.setFotoEvento(rs.getInt(4));
+                evento.setCamingoFotoEvento(rs.getString(4));
+               // evento.setFotoEvento(Integer.parseInt(evento.getCamingoFotoEvento()));
                 list.add(evento);
-                System.out.println("MOBO NOME:::::: "+evento.getNomeEvento());
+                System.out.println("MOBO NOME:::::: "+evento.getCamingoFotoEvento());
             }
             System.out.println("MOBO TRY:::::: ");
         } catch (Exception e) {

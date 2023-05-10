@@ -6,6 +6,7 @@ import android.view.Menu;
 
 import com.fieb.adotefacil.R;
 import com.fieb.adotefacil.adapter.AdapterEvento;
+import com.fieb.adotefacil.controller.EventoController;
 import com.fieb.adotefacil.model.Evento;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -58,7 +59,8 @@ public class Principal extends AppCompatActivity {
 
 
     }
-    public void onResume(Bundle savedInstanceState){
+
+    public void onResume(Bundle savedInstanceState) {
         super.onResume();
 //        Toast.makeText(Principal.this, "resume", Toast.LENGTH_SHORT).show();
     }
@@ -80,43 +82,20 @@ public class Principal extends AppCompatActivity {
                 || super.onSupportNavigateUp();
 
     }
-    public void preencheTela(){
+
+    public void preencheTela() {
 // configurar o recyclerView
         RecyclerView recyclerView_Eventos = findViewById(R.id.recyclerView);
-        recyclerView_Eventos.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        recyclerView_Eventos.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView_Eventos.setHasFixedSize(true);
 //configurar o adapter
         List<Evento> listaEventos = new ArrayList<>();
-
+        EventoController eventoController = new EventoController();
+        listaEventos = eventoController.apresentarEvento(getApplicationContext());
         AdapterEvento adapterEvento = new AdapterEvento(this, listaEventos);
         recyclerView_Eventos.setAdapter(adapterEvento);
 
-        Evento evento1 = new Evento(
-                R.drawable.tiger,
-                "Tigre",
-                "Tigres têm corpos musculosos com membros anteriores poderosos, " +
-                        "grandes cabeças, caudas longas e garras enormes. A pelagem é densa e pesada;" +
-                        " a varia entre tons de laranja e marrom com áreas ventrais brancas e listras " +
-                        "pretas verticais distintas, cujos padrões são únicos para cada indivíduo.",
-                "02/05/2023"
-        );
-//        listaEventos.add(Evento1);
-        for (int i = 0; i <10 ; i++) {
-            
-            Evento evento = new Evento();
-            evento.setFotoEvento(   R.drawable.tiger);
-            evento.setNomeEvento(  "Tigre");
-            evento.setDescricaoEvento(  "Tigres têm corpos musculosos com membros anteriores poderosos, " +
-                    "grandes cabeças, caudas longas e garras enormes. A pelagem é densa e pesada;" +
-                    " a varia entre tons de laranja e marrom com áreas ventrais brancas e listras " +
-                    "pretas verticais distintas, cujos padrões são únicos para cada indivíduo.");
-            evento.setDataEvento(   "02/05/2023");
 
-
-            evento.setNomeEvento(  "Tigre "+i);
-            listaEventos.add(evento);
-        }
-        
         System.out.println("EXIBINDO ");
     }
 }
