@@ -7,18 +7,11 @@
     android:background="@drawable/fundo"
     tools:context=".view.bemVindo.BemVindo">
 
-
-    <Button
-        android:id="@+id/btn_acesso"
-        android:layout_width="322dp"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginHorizontal="40dp"
-        android:backgroundTint="@color/fundo_botao"
-        android:gravity="center"
-        android:text="Seja bem vindo"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
