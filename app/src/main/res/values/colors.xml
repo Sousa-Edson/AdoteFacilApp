@@ -3,5 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="fundo1">#E1DFC906</color>
-    <color name="fundo_botao">#7B03F4</color>
+    <color name="fundo_botao_2">#7B03F4</color>
+    <color name="fundo_botao">#FF5722</color>
+    <color name="ligth_rose">#F436F1</color>
 </resources>

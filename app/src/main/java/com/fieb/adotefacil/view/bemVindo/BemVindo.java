@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import com.fieb.adotefacil.R;
 import com.fieb.adotefacil.controller.EventoController;
+import com.fieb.adotefacil.view.login.Login;
 import com.fieb.adotefacil.view.principal.Principal;
 
 public class BemVindo extends AppCompatActivity {
@@ -28,7 +29,7 @@ public class BemVindo extends AppCompatActivity {
 
     }
     private void mostrarLogin(){
-        Intent intent = new Intent(BemVindo.this, Principal.class);
+        Intent intent = new Intent(BemVindo.this, Login.class);
         startActivity(intent);
         finish();
     }

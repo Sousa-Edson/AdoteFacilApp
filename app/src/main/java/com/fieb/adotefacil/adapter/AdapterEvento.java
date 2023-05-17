@@ -51,9 +51,7 @@ public class AdapterEvento extends RecyclerView.Adapter<AdapterEvento.EventoView
         holder.foto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(listener != null){
-                    Toast.makeText(v.getContext(), "Clicou em algo", Toast.LENGTH_SHORT).show();
-                }
+                Toast.makeText(v.getContext(), "Clicou em: "+holder.getAdapterPosition(), Toast.LENGTH_SHORT).show();
             }
         });
     }
