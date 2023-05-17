@@ -1,4 +1,4 @@
-package com.fieb.adotefacil.view.login;
+package com.fieb.adotefacil.view.login_cadastro;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,7 +38,10 @@ public class Login extends AppCompatActivity {
     }
 
     private void navegatCadastro() {
-        Toast.makeText(Login.this,"IR PARA TELA DE CADASTRO>>>",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(Login.this, Cadastro.class);
+        startActivity(intent);
+//        finish();
+//        Toast.makeText(Login.this,"IR PARA TELA DE CADASTRO>>>",Toast.LENGTH_LONG).show();
     }
 
     private void navegarTelaPrincipal() {

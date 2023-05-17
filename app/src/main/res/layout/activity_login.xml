@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/bg_cor_fundo"
-    tools:context=".view.login.Login">
+    tools:context=".view.login_cadastro.Login">
     <ImageView
         android:layout_marginTop="10dp"
         android:id="@+id/imageView"
