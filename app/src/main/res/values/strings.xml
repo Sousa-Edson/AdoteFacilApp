@@ -27,7 +27,11 @@
     <string name="hint_senha">senha\n</string>
     <string name="texto_botao_cadastrar">Cadastrar</string>
     <string name="hint_email">digite seu email</string>
+    <string name="hint_nome">digite seu nome</string>
     <string name="titulo_form_cadastro">Cadastro de usuário</string>
     <string name="titulo_form_login">Login</string>
     <string name="texto_botao_entrar">Entrar</string>
+    <string name="hint_sobrenome">digite seu sobrenome</string>
+    <string name="hint_cpf">digite seu cpf</string>
+    <string name="hint_nascimento">digite sua data de nascimento</string>
 </resources>
