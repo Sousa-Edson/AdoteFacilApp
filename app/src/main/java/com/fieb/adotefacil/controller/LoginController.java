@@ -6,23 +6,45 @@ import com.fieb.adotefacil.api.ConexaoSqlServer;
 import com.fieb.adotefacil.model.LoginModel;
 
 import java.sql.PreparedStatement;
-import org.mindrot.jbcrypt.BCrypt;
-public class LoginController {
-//    private BCryptPasswordEncoder passwordEncoder
-    public int cadastrarLogin(LoginModel loginModel , Context context){
-        int resposta=0;
-        try{
-            PreparedStatement pst = ConexaoSqlServer.conectar(context).prepareStatement("insert into usuario (email,senha,ativo) values(?,?,?)");
-            pst.setString(1,loginModel.getEmail());
-            //  passwordEncoder.encode
-//            pst.setString(2,loginModel.getSenha());
-            pst.setString(2,BCrypt.hashpw(loginModel.getSenha(), BCrypt.gensalt()));
+import java.sql.ResultSet;
 
-            pst.setString(3,"true");
-            resposta= pst.executeUpdate();
-        }catch (Exception e){
+import org.mindrot.jbcrypt.BCrypt;
+
+public class LoginController {
+    public int cadastrarLogin(LoginModel loginModel, Context context) {
+        int resposta = 0;
+        try {
+            PreparedStatement pst = ConexaoSqlServer.conectar(context).prepareStatement("insert into usuario (email,senha,ativo) values(?,?,?)");
+            pst.setString(1, loginModel.getEmail());
+            pst.setString(2, BCrypt.hashpw(loginModel.getSenha(), BCrypt.gensalt()));
+
+            pst.setString(3, "true");
+            resposta = pst.executeUpdate();
+        } catch (Exception e) {
             e.getMessage();
-            System.out.println("ERRO: "+e.getMessage());
+            System.out.println("ERRO: " + e.getMessage());
         }
-        return resposta;}
+        return resposta;
+    }
+    public static LoginModel validarLogin(Context context, String email, String senha) {
+        try {
+            PreparedStatement pst = ConexaoSqlServer.conectar(context).prepareStatement(
+                    "SELECT email, senha FROM usuario WHERE email=? AND senha=?");
+            pst.setString(1,email);
+            pst.setString(2,senha);
+            ResultSet res = pst.executeQuery();
+            while (res.next()) {
+                LoginModel loginModel = new LoginModel();
+                loginModel.setEmail(res.getString(1));
+                loginModel.setSenha(res.getString(2));
+                System.out.println("DEU CERTO AO VALIDAR LOGIN: "+loginModel.getEmail());
+                return loginModel;
+            }
+        } catch (Exception e) {
+            System.out.println("ERRO AO VALIDAR LOGIN: "+e.getMessage());
+            e.getMessage();
+        }
+        return null;
+    }
+
 }

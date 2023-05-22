@@ -2,6 +2,7 @@ package com.fieb.adotefacil.view.login_cadastro;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,13 +12,13 @@ import android.widget.Toast;
 import com.fieb.adotefacil.R;
 import com.fieb.adotefacil.controller.LoginController;
 import com.fieb.adotefacil.model.LoginModel;
+import com.google.android.material.snackbar.Snackbar;
 
 public class Cadastro extends AppCompatActivity {
 Button btnSalvar ;
 EditText editEmail,editSenha,editConfirma;
 
     LoginModel loginModel  ;
-
     LoginController loginController  ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,10 @@ EditText editEmail,editSenha,editConfirma;
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (editEmail.getText().toString().isEmpty() || editSenha.getText().toString().isEmpty()) {
+                    Snackbar snackBar = Snackbar.make(view, "Preencha todos os campos!", Snackbar.LENGTH_SHORT);
+                    snackBar.setBackgroundTint(Color.RED);
+                    snackBar.show();}
                 loginModel = new LoginModel();
                 loginModel.setEmail(editEmail.getText().toString());
                 loginModel.setSenha(editSenha.getText().toString());
