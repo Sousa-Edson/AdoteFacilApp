@@ -25,9 +25,10 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        String email = binding.editEmail.getText().toString();
-        String senha = binding.editSenha.getText().toString();
+
         binding.btnEntrar.setOnClickListener(view ->{
+            String email = binding.editEmail.getText().toString();
+            String senha = binding.editSenha.getText().toString();
             loginModel = new LoginModel();
             loginController = new LoginController();
 
@@ -45,9 +46,9 @@ public class Login extends AppCompatActivity {
                     Snackbar snackBar = Snackbar.make(view, "Usuário ou Senha incorretos!", Snackbar.LENGTH_SHORT);
                     snackBar.setBackgroundTint(Color.RED);
                     snackBar.show();
-                    binding.editEmail.setText("");
-                    binding.editEmail.requestFocus();
-                    binding.editSenha.setText("");
+//                    binding.editEmail.setText("");
+//                    binding.editEmail.requestFocus();
+//                    binding.editSenha.setText("");
                 }
             }
         });

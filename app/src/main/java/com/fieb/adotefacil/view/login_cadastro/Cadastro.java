@@ -42,15 +42,11 @@ EditText editEmail,editSenha,editConfirma;
                     Snackbar snackBar = Snackbar.make(view, "Senha devem ser iguais!", Snackbar.LENGTH_SHORT);
                     editSenha.requestFocus();
                     snackBar.setBackgroundTint(Color.YELLOW);
-                    System.out.println("SENHA: "+editSenha.getText().toString());
-                    System.out.println("CONFIRMA: "+editConfirma.getText().toString());
-
                     snackBar.show();
                 }else {
                     loginModel = new LoginModel();
                     loginModel.setEmail(editEmail.getText().toString());
                     loginModel.setSenha(editSenha.getText().toString());
-
                     loginController = new LoginController();
                     int validar = loginController.cadastrarLogin(loginModel, getApplicationContext());
                     if (validar > 0) {
