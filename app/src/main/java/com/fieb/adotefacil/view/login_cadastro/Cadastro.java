@@ -34,23 +34,31 @@ EditText editEmail,editSenha,editConfirma;
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (editEmail.getText().toString().isEmpty() || editSenha.getText().toString().isEmpty()) {
+                if (editEmail.getText().toString().isEmpty() || editSenha.getText().toString().isEmpty()|| editConfirma.getText().toString().isEmpty()) {
                     Snackbar snackBar = Snackbar.make(view, "Preencha todos os campos!", Snackbar.LENGTH_SHORT);
-                    snackBar.setBackgroundTint(Color.RED);
-                    snackBar.show();}
-                loginModel = new LoginModel();
-                loginModel.setEmail(editEmail.getText().toString());
-                loginModel.setSenha(editSenha.getText().toString());
+                    snackBar.setBackgroundTint(Color.YELLOW);
+                    snackBar.show();
+                }else if(! editSenha.getText().toString().equals(editConfirma.getText().toString())){
+                    Snackbar snackBar = Snackbar.make(view, "Senha devem ser iguais!", Snackbar.LENGTH_SHORT);
+                    editSenha.requestFocus();
+                    snackBar.setBackgroundTint(Color.YELLOW);
+                    System.out.println("SENHA: "+editSenha.getText().toString());
+                    System.out.println("CONFIRMA: "+editConfirma.getText().toString());
 
-                loginController = new LoginController();
-                int validar = loginController.cadastrarLogin(loginModel, getApplicationContext());
-                if (validar > 0) {
-//                    Auxiliares.alert(getApplicationContext(), "Cadastro realizado com Sucesso!");
-                    Toast.makeText(Cadastro.this,"Cadastro realizado com Sucesso!",Toast.LENGTH_LONG).show();;
-                    finish();
-                } else {
-                    Toast.makeText(Cadastro.this,"Error no Cadastro!",Toast.LENGTH_LONG).show();;
-//                    Auxiliares.alert(getApplicationContext(), "Error no Cadastro!");
+                    snackBar.show();
+                }else {
+                    loginModel = new LoginModel();
+                    loginModel.setEmail(editEmail.getText().toString());
+                    loginModel.setSenha(editSenha.getText().toString());
+
+                    loginController = new LoginController();
+                    int validar = loginController.cadastrarLogin(loginModel, getApplicationContext());
+                    if (validar > 0) {
+                        Toast.makeText(Cadastro.this, "Cadastro realizado com Sucesso!", Toast.LENGTH_LONG).show();
+                        finish();
+                    } else {
+                        Toast.makeText(Cadastro.this, "Error no Cadastro!", Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });

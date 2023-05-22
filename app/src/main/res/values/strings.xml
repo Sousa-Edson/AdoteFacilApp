@@ -25,6 +25,7 @@
     <string name="login_failed">"Login failed"</string>
 
     <string name="hint_senha">senha\n</string>
+    <string name="hint_confirmasenha">confirma senha\n</string>
     <string name="texto_botao_cadastrar">Cadastrar</string>
     <string name="hint_email">digite seu email</string>
     <string name="hint_nome">digite seu nome</string>

@@ -34,7 +34,6 @@
         android:layout_marginEnd="20dp"
         android:background="@color/white"
         android:hint="@string/hint_email"
-        android:text="login@login.com3"
         android:inputType="textEmailAddress"
         android:maxLines="1"
         android:padding="15dp" />
@@ -48,7 +47,6 @@
         android:layout_marginEnd="20dp"
         android:background="@color/white"
         android:hint="@string/hint_senha"
-        android:text="123456"
         android:inputType="numberPassword"
         android:maxLines="1"
         android:padding="15dp" />
