@@ -18,6 +18,7 @@ import com.fieb.adotefacil.MainActivity;
 import com.fieb.adotefacil.R;
 import com.fieb.adotefacil.model.Evento;
 import com.fieb.adotefacil.view.principal.Principal;
+import com.fieb.adotefacil.view.principal.ui.home.HomeFragment;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class AdapterEvento extends RecyclerView.Adapter<AdapterEvento.EventoView
     private List<Evento> eventos;
     private ArrayList<Uri> fotos;
     public View.OnClickListener listener;
-    public AdapterEvento(Principal mainActivity, List<Evento> eventos) {
+    public AdapterEvento(HomeFragment mainActivity, List<Evento> eventos) {
         this.eventos = eventos;
         this.listener = listener;
     }

@@ -1,12 +1,15 @@
 package com.fieb.adotefacil.view.principal;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.fieb.adotefacil.R;
 import com.fieb.adotefacil.adapter.AdapterEvento;
 import com.fieb.adotefacil.controller.EventoController;
+import com.fieb.adotefacil.databinding.ActivityPrincipalBinding;
 import com.fieb.adotefacil.model.Evento;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -20,7 +23,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.fieb.adotefacil.databinding.ActivityPrincipalBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,14 +64,14 @@ public class Principal extends AppCompatActivity {
 
     public void onResume(Bundle savedInstanceState) {
         super.onResume();
-//        Toast.makeText(Principal.this, "resume", Toast.LENGTH_SHORT).show();
+        Toast.makeText(Principal.this, "resume", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.principal, menu);
-        preencheTela();
+//        preencheTela();
         return true;
     }
 
@@ -83,19 +85,21 @@ public class Principal extends AppCompatActivity {
 
     }
 
-    public void preencheTela() {
-// configurar o recyclerView
-        RecyclerView recyclerView_Eventos = findViewById(R.id.recyclerView);
-        recyclerView_Eventos.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        recyclerView_Eventos.setHasFixedSize(true);
-//configurar o adapter
-        List<Evento> listaEventos = new ArrayList<>();
-        EventoController eventoController = new EventoController();
-        listaEventos = eventoController.apresentarEvento(getApplicationContext());
-        AdapterEvento adapterEvento = new AdapterEvento(this, listaEventos);
-        recyclerView_Eventos.setAdapter(adapterEvento);
+//    public void preencheTela() {
+//// configurar o recyclerView
+//        RecyclerView recyclerView_Eventos = findViewById(R.id.recyclerView);
+//        recyclerView_Eventos.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+//        recyclerView_Eventos.setHasFixedSize(true);
+////configurar o adapter
+//        List<Evento> listaEventos = new ArrayList<>();
+//        EventoController eventoController = new EventoController();
+//        listaEventos = eventoController.apresentarEvento(getApplicationContext());
+//        AdapterEvento adapterEvento = new AdapterEvento(this, listaEventos);
+//        recyclerView_Eventos.setAdapter(adapterEvento);
+//
+//
+//        System.out.println("EXIBINDO ");
+//    }
 
 
-        System.out.println("EXIBINDO ");
-    }
 }

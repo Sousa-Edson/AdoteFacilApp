@@ -32,9 +32,9 @@ public class LoginController {
 //                        "$2a$10$abnIKBMK5MsbfZSJkH9g5uwgVMLjtWWH0E/5aJ4iMOCFEcbvgsgLq"));
         try {
             PreparedStatement pst = ConexaoSqlServer.conectar(context).prepareStatement(
-                    "SELECT email, senha FROM usuario WHERE email=? AND senha=?"); //
+                    "SELECT email, senha FROM usuario WHERE email=? "); // AND senha=?
             pst.setString(1,email);
-            pst.setString(2, BCrypt.hashpw(senha,BCrypt.gensalt()));
+//            pst.setString(2, BCrypt.hashpw(senha,BCrypt.gensalt()));
 
             ResultSet res = pst.executeQuery();
             while (res.next()) {
