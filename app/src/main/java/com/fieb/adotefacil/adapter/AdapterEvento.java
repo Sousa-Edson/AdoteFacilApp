@@ -1,7 +1,5 @@
 package com.fieb.adotefacil.adapter;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,13 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.fieb.adotefacil.MainActivity;
 import com.fieb.adotefacil.R;
 import com.fieb.adotefacil.model.Evento;
-import com.fieb.adotefacil.view.principal.Principal;
-import com.fieb.adotefacil.view.principal.ui.home.HomeFragment;
+import com.fieb.adotefacil.view.HomeFragment;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,9 +24,9 @@ public class AdapterEvento extends RecyclerView.Adapter<AdapterEvento.EventoView
     private ArrayList<Uri> fotos;
     public View.OnClickListener listener;
     public AdapterEvento(HomeFragment mainActivity, List<Evento> eventos) {
-        this.eventos = eventos;
+       this.eventos = eventos;
         this.listener = listener;
-    }
+   }
     @NonNull
     @Override
     public AdapterEvento.EventoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

@@ -5,14 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
+import com.fieb.adotefacil.MainActivity;
 import com.fieb.adotefacil.R;
 import com.fieb.adotefacil.controller.LoginController;
 import com.fieb.adotefacil.databinding.ActivityLoginBinding;
 import com.fieb.adotefacil.model.LoginModel;
-import com.fieb.adotefacil.view.principal.Principal;
+//import com.fieb.adotefacil.view.deletar_principal.Principal;
 import com.google.android.material.snackbar.Snackbar;
 
 public class Login extends AppCompatActivity {
@@ -66,7 +65,7 @@ public class Login extends AppCompatActivity {
     }
 
     private void navegarTelaPrincipal() {
-        Intent intent = new Intent(Login.this, Principal.class);
+        Intent intent = new Intent(Login.this, MainActivity.class);
         startActivity(intent);
         finish();
     }
