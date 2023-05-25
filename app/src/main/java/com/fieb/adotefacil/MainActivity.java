@@ -12,7 +12,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,19 +23,24 @@ import com.fieb.adotefacil.view.HomeFragment;
 import com.fieb.adotefacil.view.SettingsFragment;
 import com.fieb.adotefacil.view.ShareFragment;
 import com.google.android.material.navigation.NavigationView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
+    TextView textViewNome;
 
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar); //Ignore red line errors
         setSupportActionBar(toolbar);
+
+
 
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -51,16 +58,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             navigationView.setCheckedItem(R.id.nav_home);
         }
 
-    }
 
+
+    }
     @Override
-    protected void onPause() {
-        super.onPause();
-TextView nome = findViewById(R.id.txt_nome);
-        System.out.println("OLA: "+  nome.getText().toString());
-//        System.out.println("OLA 2: "+txtNome.getText());
+public  void onResume(){
+        super.onResume();
+// Inflar o layout que contém o TextView
+//        LayoutInflater inflater = LayoutInflater.from(this);
+//        View layout = inflater.inflate(R.layout.nav_header, null);
+//
+//        // Encontrar o TextView no layout inflado
+//         textViewNome = layout.findViewById(R.id.txt_nome);
+//        System.out.println("OLA: "+textViewNome.getText().toString());
+//        textViewNome.setText("Edson de Sousa");
+//        System.out.println("OLA MUDADO: "+textViewNome.getText().toString());
+//        String nome ="OLA aqui";
+//     textViewNome.setText(nome);
+//        System.out.println("OLA MUDADO 2: "+textViewNome.getText().toString());
+
+        NavigationView navigationView = findViewById(R.id.nav_view); // Obtém a referência ao NavigationView
+        View headerView = navigationView.getHeaderView(0); // Obtém a referência ao cabeçalho do NavigationView
+
+        TextView textViewUsername = headerView.findViewById(R.id.txt_nome); // Obtém a referência ao TextView no cabeçalho
+        String novoNome = "Novo Nome"; // Substitua pelo nome que você deseja exibir no campo
+
+        textViewUsername.setText(novoNome); // Define o novo valor do texto no TextView
+
 
     }
+
 
 
     @Override
