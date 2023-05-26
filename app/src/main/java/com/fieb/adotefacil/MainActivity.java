@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fieb.adotefacil.view.AboutFragment;
+import com.fieb.adotefacil.view.GalleryFragment;
 import com.fieb.adotefacil.view.HomeFragment;
 import com.fieb.adotefacil.view.SettingsFragment;
 import com.fieb.adotefacil.view.ShareFragment;
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
     @Override
-public  void onResume(){
+    public  void onResume(){
         super.onResume();
 // Inflar o layout que contém o TextView
 //        LayoutInflater inflater = LayoutInflater.from(this);
@@ -99,6 +100,8 @@ public  void onResume(){
 
         if(item.getItemId() ==  R.id.nav_home){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+        } else if(item.getItemId() ==  R.id.nav_gelery){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new GalleryFragment()).commit();
         } else if(item.getItemId() ==  R.id.nav_settings){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
         }
