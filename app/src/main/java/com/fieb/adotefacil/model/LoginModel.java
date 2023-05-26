@@ -5,6 +5,8 @@ public class LoginModel {
     private String email;
     private String senha;
 
+    private String nome;
+
     public LoginModel() {
     }
 
@@ -35,5 +37,13 @@ public class LoginModel {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }

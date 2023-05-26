@@ -47,7 +47,7 @@ public class Login extends AppCompatActivity {
                     snackBar.setBackgroundTint(Color.RED);
                     snackBar.show();
 //                    binding.editEmail.setText("");
-//                    binding.editEmail.requestFocus();
+                    binding.editEmail.requestFocus();
 //                    binding.editSenha.setText("");
                 }
             }
@@ -66,6 +66,12 @@ public class Login extends AppCompatActivity {
 
     private void navegarTelaPrincipal() {
         Intent intent = new Intent(Login.this, MainActivity.class);
+        intent.putExtra("EMAIL_LOGADO",loginModel.getEmail().toString());
+        String nomeLogado="Adote fácil";
+        if(loginModel.getNome() != null  ){
+            nomeLogado=loginModel.getNome().toString();
+        }
+        intent.putExtra("NOME_LOGADO",nomeLogado);
         startActivity(intent);
         finish();
     }

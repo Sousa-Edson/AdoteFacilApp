@@ -32,7 +32,7 @@ public class LoginController {
 //                        "$2a$10$abnIKBMK5MsbfZSJkH9g5uwgVMLjtWWH0E/5aJ4iMOCFEcbvgsgLq"));
         try {
             PreparedStatement pst = ConexaoSqlServer.conectar(context).prepareStatement(
-                    "SELECT email, senha FROM usuario WHERE email=? "); //AND senha=?
+                    "SELECT email, senha,nome FROM usuario WHERE email=? "); //AND senha=?
             pst.setString(1,email);
          //   pst.setString(2, BCrypt.hashpw(senha,BCrypt.gensalt()));
 
@@ -44,6 +44,7 @@ public class LoginController {
                     LoginModel loginModel = new LoginModel();
                     loginModel.setEmail(res.getString(1));
                     loginModel.setSenha(res.getString(2));
+                    loginModel.setNome(res.getString(3));
                     System.out.println("DEU CERTO AO VALIDAR LOGIN: " + loginModel.getEmail());
                     return loginModel;
                 }else{

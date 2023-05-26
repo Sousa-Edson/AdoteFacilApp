@@ -77,16 +77,20 @@ public  void onResume(){
 //     textViewNome.setText(nome);
 //        System.out.println("OLA MUDADO 2: "+textViewNome.getText().toString());
 
+
+
         NavigationView navigationView = findViewById(R.id.nav_view); // Obtém a referência ao NavigationView
         View headerView = navigationView.getHeaderView(0); // Obtém a referência ao cabeçalho do NavigationView
 
         TextView textViewUsername = headerView.findViewById(R.id.txt_nome); // Obtém a referência ao TextView no cabeçalho
-        String novoNome = "Novo Nome"; // Substitua pelo nome que você deseja exibir no campo
+        textViewUsername.setText(getIntent().getStringExtra("NOME_LOGADO")); // Define o novo valor do texto no TextView
 
-        textViewUsername.setText(novoNome); // Define o novo valor do texto no TextView
+        TextView textViewEmail = headerView.findViewById(R.id.txt_email);
+        textViewEmail.setText(getIntent().getStringExtra("EMAIL_LOGADO"));
 
 
     }
+
 
 
 
@@ -121,4 +125,6 @@ public  void onResume(){
             super.onBackPressed();
         }
     }
+
+
 }
