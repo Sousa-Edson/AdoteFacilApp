@@ -2,7 +2,9 @@ package com.fieb.adotefacil.view.login_cadastro;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -65,13 +67,27 @@ public class Login extends AppCompatActivity {
     }
 
     private void navegarTelaPrincipal() {
-        Intent intent = new Intent(Login.this, MainActivity.class);
-        intent.putExtra("EMAIL_LOGADO",loginModel.getEmail().toString());
+
+        SharedPreferences sharedPreferences = getSharedPreferences("login", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("isLogged", true);
+        editor.putString("EMAIL_LOGADO",loginModel.getEmail().toString());
         String nomeLogado="Adote fácil";
         if(loginModel.getNome() != null  ){
             nomeLogado=loginModel.getNome().toString();
         }
-        intent.putExtra("NOME_LOGADO",nomeLogado);
+        editor.putString("NOME_LOGADO",nomeLogado);
+        editor.apply();
+
+
+
+        Intent intent = new Intent(Login.this, MainActivity.class);
+//        intent.putExtra("EMAIL_LOGADO",loginModel.getEmail().toString());
+//        String nomeLogado="Adote fácil";
+//        if(loginModel.getNome() != null  ){
+//            nomeLogado=loginModel.getNome().toString();
+//        }
+//        intent.putExtra("NOME_LOGADO",nomeLogado);
         startActivity(intent);
         finish();
     }

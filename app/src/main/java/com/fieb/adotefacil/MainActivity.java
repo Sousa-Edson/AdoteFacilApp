@@ -11,6 +11,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -79,15 +81,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        System.out.println("OLA MUDADO 2: "+textViewNome.getText().toString());
 
 
+        SharedPreferences sharedPreferences = getSharedPreferences("login", Context.MODE_PRIVATE);
 
         NavigationView navigationView = findViewById(R.id.nav_view); // Obtém a referência ao NavigationView
         View headerView = navigationView.getHeaderView(0); // Obtém a referência ao cabeçalho do NavigationView
 
         TextView textViewUsername = headerView.findViewById(R.id.txt_nome); // Obtém a referência ao TextView no cabeçalho
-        textViewUsername.setText(getIntent().getStringExtra("NOME_LOGADO")); // Define o novo valor do texto no TextView
+        textViewUsername.setText(sharedPreferences.getString("NOME_LOGADO", "")); // Define o novo valor do texto no TextView
 
         TextView textViewEmail = headerView.findViewById(R.id.txt_email);
-        textViewEmail.setText(getIntent().getStringExtra("EMAIL_LOGADO"));
+        textViewEmail.setText(sharedPreferences.getString("EMAIL_LOGADO", ""));
 
 
     }
@@ -113,6 +116,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         else if(item.getItemId() ==  R.id.nav_logout){
             Toast.makeText(this, "Logout!", Toast.LENGTH_SHORT).show();
+
+            SharedPreferences sharedPreferences = getSharedPreferences("login", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("isLogged", false);
+            editor.apply();
+
             finish();
 
         }
