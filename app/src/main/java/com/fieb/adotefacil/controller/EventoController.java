@@ -14,13 +14,15 @@ public class EventoController {
         ArrayList<Evento> list = new ArrayList<>();
         try {
             Statement stm = ConexaoSqlServer.conectar(context).createStatement();
-            ResultSet rs = stm.executeQuery("select data_publicacao,titulo,conteudo,caminho_imagem from postagem");
+            ResultSet rs = stm.executeQuery("select data_publicacao,titulo,conteudo,caminho_imagem ,id, link_evento from postagem");
             while (rs.next()) {
                 Evento evento = new Evento();
                 evento.setDataEvento(rs.getString(1));
                 evento.setNomeEvento(rs.getString(2));
                 evento.setDescricaoEvento(rs.getString(3));
                 evento.setCamingoFotoEvento(rs.getString(4));
+                evento.setIdEvento(rs.getInt(5));
+                evento.setLinkEvento(rs.getString(6));
                // evento.setFotoEvento(Integer.parseInt(evento.getCamingoFotoEvento()));
                 list.add(evento);
                 System.out.println("MOBO getCamingoFotoEvento:::::: "+evento.getCamingoFotoEvento());

@@ -1,7 +1,5 @@
 package com.fieb.adotefacil.adapter;
 
-import android.content.ClipData;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -48,7 +46,7 @@ public class AdapterEvento extends RecyclerView.Adapter<AdapterEvento.EventoView
 
         holder.nome.setText(eventos.get(position).getNomeEvento());
         holder.descricao.setText(eventos.get(position).getDescricaoEvento());
-        holder.preco.setText(eventos.get(position).getDataEvento());
+        holder.data.setText(eventos.get(position).getDataEvento());
 
 //        holder.foto.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -75,7 +73,7 @@ public class AdapterEvento extends RecyclerView.Adapter<AdapterEvento.EventoView
 //                    Item item = itemList.get(position);
 
                     // Cria uma instância do novo Fragment
-                    DetailsEventFragment novoFragment =  new DetailsEventFragment(evento);
+                    DetailsEventFragment detailsEventFragment =  new DetailsEventFragment(evento);
 //                    novoFragment.recebe(evento.getDescricaoEvento());
 
                     Bundle args = new Bundle();
@@ -83,7 +81,7 @@ public class AdapterEvento extends RecyclerView.Adapter<AdapterEvento.EventoView
                     args.putString("txtDescricao", evento.getDescricaoEvento()); // Substitua "chave" pelo nome da chave desejada e "valor" pelo valor real que você deseja passar
                     args.putString("txtFoto", evento.getCamingoFotoEvento());
 //                    MeuFragmentoDestino fragmentoDestino = new MeuFragmentoDestino();
-                    novoFragment.setArguments(args);
+                    detailsEventFragment.setArguments(args);
 
 
                     // Obtém o FragmentManager da Activity
@@ -91,10 +89,10 @@ public class AdapterEvento extends RecyclerView.Adapter<AdapterEvento.EventoView
 
                     // Inicia uma transação de Fragment e substitui o Fragment atual pelo novo Fragment
                     fragmentManager.beginTransaction()
-                            .replace(R.id.fragment_container, novoFragment)
+                            .replace(R.id.fragment_container, detailsEventFragment)
                             .addToBackStack(null)
                             .commit();
-                    Toast.makeText(v.getContext(), "Clicou em: " +evento.getDescricaoEvento(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "Clicou em: " +evento.getIdEvento(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -108,7 +106,7 @@ public class AdapterEvento extends RecyclerView.Adapter<AdapterEvento.EventoView
         ImageView foto = itemView.findViewById(R.id.fotoEvento);
         TextView nome = itemView.findViewById(R.id.nomeEvento);
         TextView descricao = itemView.findViewById(R.id.descricaoEvento);
-        TextView preco = itemView.findViewById(R.id.dataEvento);
+        TextView data = itemView.findViewById(R.id.dataEvento);
         public EventoViewHolder(@NonNull View itemView) {
             super(itemView);
         }
