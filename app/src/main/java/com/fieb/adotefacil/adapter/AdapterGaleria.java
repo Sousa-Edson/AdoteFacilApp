@@ -38,13 +38,13 @@ public class AdapterGaleria extends RecyclerView.Adapter<AdapterGaleria.EventoVi
 
     @Override
     public void onBindViewHolder(@NonNull AdapterGaleria.EventoViewHolder holder, int position) {
-//        Animal fotos = animais.get(position);
-//        String imageUrl= fotos.getCaminhoFotoAnimal().get(0).toString();
-//        Glide.with(holder.itemView.getContext()).load(imageUrl).into(holder.foto);
+        Animal fotos = animais.get(position);
+        String imageUrl= fotos.getCaminhoFotoAnimal().get(0).toString();
+        Glide.with(holder.itemView.getContext()).load(imageUrl).into(holder.foto);
 
         holder.nome.setText(animais.get(position).getNome());
         holder.descricao.setText(animais.get(position).getResumo());
-        holder.sexo.setText(animais.get(position).getSexo() ==1 ?"Macho":animais.get(position).getSexo() ==0 ?"Femea":"Indefinido");
+        holder.sexo.setText(animais.get(position).getSexo() ==2 ?"Macho":animais.get(position).getSexo() ==1 ?"Femea":"Indefinido");
 
 //        holder.foto.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -100,7 +100,7 @@ public class AdapterGaleria extends RecyclerView.Adapter<AdapterGaleria.EventoVi
         return animais.size();
     }
     public static class EventoViewHolder extends RecyclerView.ViewHolder {
-//        ImageView foto = itemView.findViewById(R.id.fotoAnimal);
+        ImageView foto = itemView.findViewById(R.id.fotoAnimal);
         TextView nome = itemView.findViewById(R.id.nomeAnimal);
         TextView descricao = itemView.findViewById(R.id.descricaoAnimal);
         TextView sexo = itemView.findViewById(R.id.sexoAnimal);

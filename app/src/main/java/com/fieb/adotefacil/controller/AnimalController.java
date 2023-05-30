@@ -9,8 +9,11 @@ import com.fieb.adotefacil.model.Evento;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class AnimalController {
+
     public ArrayList<Animal> apresentarAnimal(Context context) {
         ArrayList<Animal> list = new ArrayList<>();
         try {
@@ -23,6 +26,7 @@ public class AnimalController {
                 animal.setNome(rs.getString(3));
                 animal.setResumo(rs.getString(4));
                 animal.setObservacao(rs.getString(5));
+                animal.setCaminhoFotoAnimal(Collections.singletonList("https://www.ufsm.br/app/uploads/sites/601/2020/12/capa_Adocao2-1024x668.jpg"));
                // evento.setFotoEvento(Integer.parseInt(evento.getCamingoFotoEvento()));
                 list.add(animal);
                 System.out.println("MOBO getCaminhoFotoAnimal:::::: "+animal.getCaminhoFotoAnimal());
