@@ -8,6 +8,7 @@ public class Animal {
   private String nome;
   private String resumo;
   private String observacao;
+  private String fotoAnimal;
 
   private List <PetImagem> caminhoFotoAnimal;
 
@@ -77,5 +78,13 @@ public class Animal {
 
     public void setCaminhoFotoAnimal(List<PetImagem> caminhoFotoAnimal) {
         this.caminhoFotoAnimal = caminhoFotoAnimal;
+    }
+
+    public String getFotoAnimal() {
+        return fotoAnimal;
+    }
+
+    public void setFotoAnimal(String fotoAnimal) {
+        this.fotoAnimal = fotoAnimal;
     }
 }

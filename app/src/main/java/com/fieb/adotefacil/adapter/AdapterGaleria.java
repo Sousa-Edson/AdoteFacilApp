@@ -39,7 +39,8 @@ public class AdapterGaleria extends RecyclerView.Adapter<AdapterGaleria.EventoVi
     @Override
     public void onBindViewHolder(@NonNull AdapterGaleria.EventoViewHolder holder, int position) {
         Animal fotos = animais.get(position);
-        String imageUrl= fotos.getCaminhoFotoAnimal().get(0).toString();
+//        String imageUrl= fotos.getCaminhoFotoAnimal().get(0).toString();
+        String imageUrl= fotos.getFotoAnimal().toString();
         Glide.with(holder.itemView.getContext()).load(imageUrl).into(holder.foto);
 
         holder.nome.setText(animais.get(position).getNome());
