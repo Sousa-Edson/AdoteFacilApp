@@ -15,13 +15,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.fieb.adotefacil.DetailsEventFragment;
 import com.fieb.adotefacil.DetailsGalleryFragment;
 import com.fieb.adotefacil.R;
 import com.fieb.adotefacil.model.Animal;
-import com.fieb.adotefacil.model.Evento;
 import com.fieb.adotefacil.view.GalleryFragment;
-import com.fieb.adotefacil.view.HomeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,27 +26,25 @@ import java.util.List;
 public class AdapterGaleria extends RecyclerView.Adapter<AdapterGaleria.EventoViewHolder> {
     private List<Animal> animais;
     private ArrayList<Uri> fotos;
-//    public View.OnClickListener listener;
     public AdapterGaleria(GalleryFragment mainActivity, List<Animal> animais) {
        this.animais = animais;
-//        this.listener = listener;
    }
     @NonNull
     @Override
     public AdapterGaleria.EventoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemLista = LayoutInflater.from(parent.getContext()).inflate(R.layout.evento_item,parent,false);
+        View itemLista = LayoutInflater.from(parent.getContext()).inflate(R.layout.galeria_item,parent,false);
         return new EventoViewHolder(itemLista);
     }
 
     @Override
     public void onBindViewHolder(@NonNull AdapterGaleria.EventoViewHolder holder, int position) {
-        Animal fotos = animais.get(position);
-//        String imageUrl= fotos.getCaminhoFotoAnimal();
+//        Animal fotos = animais.get(position);
+//        String imageUrl= fotos.getCaminhoFotoAnimal().get(0).toString();
 //        Glide.with(holder.itemView.getContext()).load(imageUrl).into(holder.foto);
 
         holder.nome.setText(animais.get(position).getNome());
         holder.descricao.setText(animais.get(position).getResumo());
-        holder.data.setText(animais.get(position).getSexo());
+        holder.sexo.setText(animais.get(position).getSexo() ==1 ?"Macho":animais.get(position).getSexo() ==0 ?"Femea":"Indefinido");
 
 //        holder.foto.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -105,10 +100,10 @@ public class AdapterGaleria extends RecyclerView.Adapter<AdapterGaleria.EventoVi
         return animais.size();
     }
     public static class EventoViewHolder extends RecyclerView.ViewHolder {
-        ImageView foto = itemView.findViewById(R.id.fotoEvento);
-        TextView nome = itemView.findViewById(R.id.nomeEvento);
-        TextView descricao = itemView.findViewById(R.id.descricaoEvento);
-        TextView data = itemView.findViewById(R.id.dataEvento);
+//        ImageView foto = itemView.findViewById(R.id.fotoAnimal);
+        TextView nome = itemView.findViewById(R.id.nomeAnimal);
+        TextView descricao = itemView.findViewById(R.id.descricaoAnimal);
+        TextView sexo = itemView.findViewById(R.id.sexoAnimal);
         public EventoViewHolder(@NonNull View itemView) {
             super(itemView);
         }

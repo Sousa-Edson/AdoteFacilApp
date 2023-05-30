@@ -32,7 +32,7 @@ public class GalleryFragment extends Fragment {
 //        return inflater.inflate(R.layout.fragment_gallery, container, false);
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-//        preencheTela();
+        preencheTela();
         // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.fragment_home, container, false);
         return root;
@@ -46,11 +46,11 @@ public class GalleryFragment extends Fragment {
 //configurar o adapter
         List<Animal> listaAnimais = new ArrayList<>();
         AnimalController animalController = new AnimalController();
-        listaAnimais = animalController.apresentarEvento(getContext());
+        listaAnimais = animalController.apresentarAnimal(getContext());
         AdapterGaleria adapterGaleria = new AdapterGaleria(GalleryFragment.this, listaAnimais);
         recyclerView_Animais.setAdapter(adapterGaleria);
 
 
-        System.out.println("EXIBINDO ");
+        System.out.println("EXIBINDO "+listaAnimais.size());
     }
 }

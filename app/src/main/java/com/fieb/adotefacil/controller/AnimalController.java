@@ -11,11 +11,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class AnimalController {
-    public ArrayList<Animal> apresentarEvento(Context context) {
+    public ArrayList<Animal> apresentarAnimal(Context context) {
         ArrayList<Animal> list = new ArrayList<>();
         try {
             Statement stm = ConexaoSqlServer.conectar(context).createStatement();
-            ResultSet rs = stm.executeQuery("select data_publicacao,titulo,conteudo,caminho_imagem ,id, link_evento from postagem");
+            ResultSet rs = stm.executeQuery("select id,sexo,nome,resumo,observacao from animal");
             while (rs.next()) {
                 Animal animal = new Animal();
                 animal.setId(rs.getInt(1));
