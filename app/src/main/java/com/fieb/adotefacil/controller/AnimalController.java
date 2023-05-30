@@ -1,0 +1,40 @@
+package com.fieb.adotefacil.controller;
+
+import android.content.Context;
+
+import com.fieb.adotefacil.api.ConexaoSqlServer;
+import com.fieb.adotefacil.model.Animal;
+import com.fieb.adotefacil.model.Evento;
+
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+public class AnimalController {
+    public ArrayList<Animal> apresentarEvento(Context context) {
+        ArrayList<Animal> list = new ArrayList<>();
+        try {
+            Statement stm = ConexaoSqlServer.conectar(context).createStatement();
+            ResultSet rs = stm.executeQuery("select data_publicacao,titulo,conteudo,caminho_imagem ,id, link_evento from postagem");
+            while (rs.next()) {
+                Animal animal = new Animal();
+                animal.setId(rs.getInt(1));
+                animal.setSexo(rs.getInt(2));
+                animal.setNome(rs.getString(3));
+                animal.setResumo(rs.getString(4));
+                animal.setObservacao(rs.getString(5));
+               // evento.setFotoEvento(Integer.parseInt(evento.getCamingoFotoEvento()));
+                list.add(animal);
+                System.out.println("MOBO getCaminhoFotoAnimal:::::: "+animal.getCaminhoFotoAnimal());
+            }
+          //  System.out.println("MOBO TRY:::::: ");
+        } catch (Exception e) {
+            e.getMessage();
+            System.out.println("MOBO Exception:::::: "+e);
+        }
+     //   System.out.println("MOBO OLA :::::: "+list);
+//        list.add(new Evento("Teste","Descrição evento","12/12/2012"));
+        return list;
+    }
+
+}
