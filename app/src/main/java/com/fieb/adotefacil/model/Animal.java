@@ -9,7 +9,7 @@ public class Animal {
   private String resumo;
   private String observacao;
 
-  private List caminhoFotoAnimal;
+  private List <PetImagem> caminhoFotoAnimal;
 
     public Animal() {
     }
@@ -22,13 +22,13 @@ public class Animal {
         this.observacao = observacao;
     }
 
-    public Animal(int id, int sexo, String nome, String resumo, String observacao, List foto) {
+    public Animal(int id, int sexo, String nome, String resumo, String observacao, List<PetImagem> caminhoFotoAnimal) {
         this.id = id;
         this.sexo = sexo;
         this.nome = nome;
         this.resumo = resumo;
         this.observacao = observacao;
-        this.caminhoFotoAnimal = foto;
+        this.caminhoFotoAnimal = caminhoFotoAnimal;
     }
 
     public int getId() {
@@ -71,11 +71,11 @@ public class Animal {
         this.observacao = observacao;
     }
 
-    public List getCaminhoFotoAnimal() {
+    public List<PetImagem> getCaminhoFotoAnimal() {
         return caminhoFotoAnimal;
     }
 
-    public void setCaminhoFotoAnimal(List caminhoFotoAnimal) {
+    public void setCaminhoFotoAnimal(List<PetImagem> caminhoFotoAnimal) {
         this.caminhoFotoAnimal = caminhoFotoAnimal;
     }
 }
