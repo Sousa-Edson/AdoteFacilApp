@@ -19,9 +19,9 @@ public class AnimalController {
         ArrayList<Animal> list = new ArrayList<>();
         try {
             Statement stm = ConexaoSqlServer.conectar(context).createStatement();
-//            ResultSet rs = stm.executeQuery("select id,sexo,nome,resumo,observacao from animal");
-            ResultSet rs = stm.executeQuery("SELECT animal.id, animal.sexo, animal.nome, animal.resumo, animal.observacao, MIN(pet_imagem.url_imagem) AS primeira_imagem" +
-                    " FROM animal JOIN pet_imagem ON animal.id = pet_imagem.animal_id GROUP BY animal.id, animal.sexo, animal.nome, animal.resumo, animal.observacao");
+            ResultSet rs = stm.executeQuery("select id,sexo,nome,resumo,observacao from animal");
+//            ResultSet rs = stm.executeQuery("SELECT animal.id, animal.sexo, animal.nome, animal.resumo, animal.observacao, MIN(pet_imagem.url_imagem) AS primeira_imagem" +
+//                    " FROM animal JOIN pet_imagem ON animal.id = pet_imagem.animal_id GROUP BY animal.id, animal.sexo, animal.nome, animal.resumo, animal.observacao");
             while (rs.next()) {
                 Animal animal = new Animal();
                 animal.setId(rs.getInt(1));
@@ -29,9 +29,10 @@ public class AnimalController {
                 animal.setNome(rs.getString(3));
                 animal.setResumo(rs.getString(4));
                 animal.setObservacao(rs.getString(5));
-                animal.setFotoAnimal(rs.getString(6));
+//                animal.setFotoAnimal(rs.getString(1));
 //                animal.setCaminhoFotoAnimal((List<PetImagem>) rs.getArray(6));
                 // evento.setFotoEvento(Integer.parseInt(evento.getCamingoFotoEvento()));
+                animal.setCaminhoFotoAnimal(listaImagem(context,rs.getString(1)));
                 list.add(animal);
                 System.out.println("MOBO getCaminhoFotoAnimal:::::: "+animal.getCaminhoFotoAnimal());
             }
@@ -42,6 +43,24 @@ public class AnimalController {
         }
         //   System.out.println("MOBO OLA :::::: "+list);
 //        list.add(new Evento("Teste","Descrição evento","12/12/2012"));
+        return list;
+    }
+
+    public ArrayList<PetImagem> listaImagem(Context context,String animalId) {
+        ArrayList<PetImagem> list = new ArrayList<>();
+        try {
+            Statement stm = ConexaoSqlServer.conectar(context).createStatement();
+            ResultSet rs = stm.executeQuery("select url_imagem,animal_id from pet_imagem where animal_id = "+animalId );
+            while (rs.next()) {
+                PetImagem petImagem = new PetImagem();
+                petImagem.setCaminhoImagem(rs.getString(1));
+                petImagem.setIdAnimal(rs.getInt(2));
+                list.add(petImagem);
+            }
+        } catch (Exception e) {
+            e.getMessage();
+            System.out.println("MOBO Exception:::::: "+e);
+        }
         return list;
     }
 

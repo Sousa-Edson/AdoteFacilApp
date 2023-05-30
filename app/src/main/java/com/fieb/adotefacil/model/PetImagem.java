@@ -2,14 +2,24 @@ package com.fieb.adotefacil.model;
 
 public class PetImagem {
     private int id;
+    private int idAnimal;
     private String caminhoImagem;
 
     public PetImagem() {
     }
 
-    public PetImagem(int id, String caminhoImagem) {
+    public PetImagem(int id, int idAnimal, String caminhoImagem) {
         this.id = id;
+        this.idAnimal = idAnimal;
         this.caminhoImagem = caminhoImagem;
+    }
+
+    public int getIdAnimal() {
+        return idAnimal;
+    }
+
+    public void setIdAnimal(int idAnimal) {
+        this.idAnimal = idAnimal;
     }
 
     public int getId() {
