@@ -20,17 +20,16 @@
         <!-- TODO: Update blank fragment layout -->
 
         <ImageView
-            android:id="@+id/fotoEvento"
+            android:id="@+id/fotoAnimalPrincipal"
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:layout_margin="10dp"
-            android:scaleType="center"
             android:src="@drawable/amigoanimal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/nomeEvento"
+            android:id="@+id/nomeAnimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="180dp"
@@ -41,11 +40,11 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fotoEvento"
+            app:layout_constraintTop_toBottomOf="@+id/fotoAnimalPrincipal"
             app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/descricaoEvento"
+                android:id="@+id/descricaoAnimal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -55,12 +54,12 @@
                 android:textSize="16sp"
                 android:textColor="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/fotoEvento"
-                app:layout_constraintTop_toBottomOf="@+id/nomeEvento" />
+                app:layout_constraintStart_toEndOf="@+id/fotoAnimalPrincipal"
+                app:layout_constraintTop_toBottomOf="@+id/nomeAnimal" />
 
 
         <TextView
-            android:id="@+id/dataEvento"
+            android:id="@+id/sexoAnimal"
             android:layout_width="match_parent"
             android:layout_height="31dp"
             android:layout_marginStart="10dp"
@@ -71,8 +70,8 @@
             android:textColor="@android:color/white"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/fotoEvento"
-            app:layout_constraintTop_toBottomOf="@+id/descricaoEvento" />
+            app:layout_constraintStart_toStartOf="@+id/fotoAnimalPrincipal"
+            app:layout_constraintTop_toBottomOf="@+id/descricaoAnimal" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

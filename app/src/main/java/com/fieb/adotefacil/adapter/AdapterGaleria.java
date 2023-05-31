@@ -78,7 +78,8 @@ public class AdapterGaleria extends RecyclerView.Adapter<AdapterGaleria.EventoVi
                     Bundle args = new Bundle();
                     args.putString("txtAnimal", animal.getNome());
                     args.putString("txtResumo", animal.getResumo());
-//                    args.putString("txtFoto", animal.getCaminhoFotoAnimal());
+                    args.putString("txtSexo", animal.getSexo()==2 ?"Macho":animal.getSexo() ==1 ?"Femea":"Indefinido");
+                    args.putString("txtFoto", animal.getCaminhoFotoAnimal().get(0).getCaminhoImagem().toString());
                     detailsEventFragment.setArguments(args);
 
 
