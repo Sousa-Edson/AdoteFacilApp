@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
-    android:background="@drawable/bg_cor_fundo"
     tools:context=".DetailsEventFragment">
 
     <ScrollView
@@ -44,6 +43,21 @@
             app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/descricaoAnimalLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="Descrição do animal"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fotoAnimalPrincipal"
+                app:layout_constraintTop_toBottomOf="@+id/nomeAnimal" />
+
+
+            <TextView
                 android:id="@+id/descricaoAnimal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -55,7 +69,34 @@
                 android:textColor="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/fotoAnimalPrincipal"
-                app:layout_constraintTop_toBottomOf="@+id/nomeAnimal" />
+                app:layout_constraintTop_toBottomOf="@+id/descricaoAnimalLabel" />
+
+            <TextView
+                android:id="@+id/resumoAnimalLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="Resumo do animal"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fotoAnimalPrincipal"
+                app:layout_constraintTop_toBottomOf="@+id/descricaoAnimal" />
+            <TextView
+                android:id="@+id/resumoAnimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="fdfdfddfdfdfdfdfdfdfdfdfdfdfdffdfdfddfdfdfdfdfdfdfdfdfdfdfdffdfdfddfdfdfdfdfdfdfdfdfdfdfdffdfdfddfdfdfdfdfdfdfdfdfdfdfdf"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fotoAnimalPrincipal"
+                app:layout_constraintTop_toBottomOf="@+id/resumoAnimalLabel" />
 
 
         <TextView
@@ -71,7 +112,21 @@
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/fotoAnimalPrincipal"
-            app:layout_constraintTop_toBottomOf="@+id/descricaoAnimal" />
+            app:layout_constraintTop_toBottomOf="@+id/resumoAnimal" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Adotar"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/purple_200"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintStart_toStartOf="@+id/fotoAnimalPrincipal"
+                app:layout_constraintTop_toBottomOf="@+id/sexoAnimal"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

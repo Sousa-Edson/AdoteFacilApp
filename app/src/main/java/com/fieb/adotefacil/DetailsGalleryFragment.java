@@ -48,18 +48,11 @@ public class DetailsGalleryFragment extends Fragment {
         txtSexo=binding.sexoAnimal;
         Bundle args = getArguments();
         if (args != null) {
-//            String valor = args.getString("txtDescricao"); // Substitua "chave" pelo nome da chave usada anteriormente
-            // Use o valor recebido conforme necessário
-//            System.out.println("AQUI "+valor.toString());
             txtAnimal.setText(args.getString("txtAnimal"));
             txtDescricao.setText(args.getString("txtResumo"));
             txtSexo.setText(args.getString("txtSexo"));
             String imageUrl=args.getString("txtFoto");
             Glide.with(this.getContext()).load(imageUrl).into(this.txtCaminhoFoto);
-//            txtCaminhoFoto.setImageURI(Uri.parse(args.getString("txtFoto")));
         }
-
-
-//        texto.setText("AQUI"+teste);
     }
 }
