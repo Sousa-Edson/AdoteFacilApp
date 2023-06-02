@@ -27,11 +27,12 @@ public class ConexaoSqlServer {
 
         }catch (android.database.SQLException e){
             //SQLException
-            e.getMessage();
             Toast.makeText(context,"Servidor Indisponivel",Toast.LENGTH_LONG).show();
+            e.getMessage();
         }catch (ClassNotFoundException e){
             e.printStackTrace();
         }catch (java.sql.SQLException e){
+            Toast.makeText(context,"Conection "+conn,Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
         return conn;
