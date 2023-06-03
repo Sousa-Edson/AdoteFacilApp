@@ -34,7 +34,6 @@ public class BemVindo extends AppCompatActivity {
     private void mostrarLogin(){
         SharedPreferences sharedPreferences = getSharedPreferences("login", Context.MODE_PRIVATE);
         boolean isLogged = sharedPreferences.getBoolean("isLogged", false);
-        PreparedStatement pst = (PreparedStatement) ConexaoSqlServer.conectar(getApplicationContext());
 
         if (isLogged) {
 
