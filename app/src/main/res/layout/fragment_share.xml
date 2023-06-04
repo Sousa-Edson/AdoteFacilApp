@@ -58,15 +58,17 @@
                 android:text="Raça do animal"
                 android:textColor="@color/white" />
 
-            <EditText
-                android:id="@+id/editRacaAnimal"
+            <Spinner
+                android:id="@+id/spinnerRacaAnimal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:height="50dp"
+                android:labelFor="@id/textRacaAnimalLabel"
+                android:padding="5dp"
                 android:ems="10"
-                android:hint="Pastor alemão"
+                android:textColor="@color/white"
                 android:textSize="20sp" />
             <TextView
                 android:id="@+id/textCorAnimalLabel"
@@ -107,14 +109,9 @@
                 android:height="50dp"
                 android:ems="10"
                 android:hint="22/05/2021"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/editTextDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
+                android:textSize="20sp"
                 android:inputType="date" />
+
 
             <Button
                 android:id="@+id/button"
