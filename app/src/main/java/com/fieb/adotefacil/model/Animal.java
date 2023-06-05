@@ -5,6 +5,8 @@ import java.util.List;
 public class Animal {
   private  int id;
   private  int sexo;
+  private  int raca;
+  private  int cor;
   private String nome;
   private String resumo;
   private String observacao;
@@ -80,11 +82,32 @@ public class Animal {
         this.caminhoFotoAnimal = caminhoFotoAnimal;
     }
 
+    public int getRaca() {
+        return raca;
+    }
+
+    public void setRaca(int raca) {
+        this.raca = raca;
+    }
+
+    public int getCor() {
+        return cor;
+    }
+
+    public void setCor(int cor) {
+        this.cor = cor;
+    }
+
     public String getFotoAnimal() {
         return fotoAnimal;
     }
 
     public void setFotoAnimal(String fotoAnimal) {
         this.fotoAnimal = fotoAnimal;
+    }
+
+    @Override
+    public String toString() {
+        return   nome  ;
     }
 }
