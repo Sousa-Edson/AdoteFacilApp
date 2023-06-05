@@ -23,4 +23,9 @@ public class Raca {
     public void setRaca(String raca) {
         this.raca = raca;
     }
+
+    @Override
+    public String toString() {
+        return   raca  ;
+    }
 }
