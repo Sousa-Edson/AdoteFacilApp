@@ -35,6 +35,7 @@
                 android:layout_marginEnd="10dp"
                 android:padding="5dp"
                 android:text="Nome do animal"
+                android:background="@color/fundo_escuro_claro"
                 android:textColor="@color/white" />
 
             <EditText
@@ -58,6 +59,8 @@
                 android:layout_marginEnd="10dp"
                 android:padding="5dp"
                 android:text="Raça do animal"
+                android:background="@color/fundo_escuro_claro"
+
                 android:textColor="@color/white" />
 
             <Spinner
@@ -80,6 +83,7 @@
                 android:layout_marginEnd="10dp"
                 android:padding="5dp"
                 android:text="Cor do animal"
+                android:background="@color/fundo_escuro_claro"
                 android:textColor="@color/white" />
 
             <EditText
@@ -100,6 +104,8 @@
                 android:layout_marginEnd="10dp"
                 android:padding="5dp"
                 android:text="Data nascimento animal"
+                android:background="@color/fundo_escuro_claro"
+
                 android:textColor="@color/white" />
 
             <EditText
@@ -121,6 +127,8 @@
                 android:layout_marginEnd="10dp"
                 android:padding="5dp"
                 android:text="Resumo do animal"
+                android:background="@color/fundo_escuro_claro"
+
                 android:textColor="@color/white" />
 
             <EditText

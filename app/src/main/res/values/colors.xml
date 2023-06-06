@@ -14,4 +14,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="lavender">#8692f7</color>
 
+    <color name="fundo_escuro_claro">#0D000000</color>
+
 </resources>
