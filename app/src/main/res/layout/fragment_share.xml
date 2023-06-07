@@ -86,16 +86,19 @@
                 android:background="@color/fundo_escuro_claro"
                 android:textColor="@color/white" />
 
-            <EditText
-                android:id="@+id/editCorAnimal"
+            <Spinner
+                android:id="@+id/spinnerCorAnimal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:height="50dp"
+                android:labelFor="@id/textRacaAnimalLabel"
+                android:padding="5dp"
                 android:ems="10"
-                android:hint="Cor animal"
+                android:textColor="@color/white"
                 android:textSize="20sp" />
+
             <TextView
                 android:id="@+id/textDataNascimentoAnimalLabel"
                 android:layout_width="match_parent"
