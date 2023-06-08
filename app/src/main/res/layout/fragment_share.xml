@@ -153,29 +153,73 @@
                 android:text="Sexo do animal"
                 android:background="@color/fundo_escuro_claro"
                 android:textColor="@color/white" />
+
             <RadioGroup
-                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent" >
 
                 <RadioButton
                     android:id="@+id/radioButtonMacho"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
                     android:text="Macho" />
 
                 <RadioButton
                     android:id="@+id/radioButtonFemea"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
                     android:text="Femêa" />
 
                 <RadioButton
                     android:id="@+id/radioButtonIndefinido"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
                     android:text="Indefinido" />
-            </RadioGroup>
 
+            </RadioGroup>
+            <TextView
+                android:id="@+id/textVacinadoLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:text="Animal vacinado?"
+                android:background="@color/fundo_escuro_claro"
+                android:textColor="@color/white" />
+            <RadioGroup
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" >
+
+                <RadioButton
+                    android:id="@+id/radioButtonVacinadoSim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:text="Sim" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonVacinadoNao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:text="Não" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonVacinadoIndefinido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:text="Indefinido" />
+
+            </RadioGroup>
             <TextView
                 android:id="@+id/textResumoLabel"
                 android:layout_width="match_parent"
