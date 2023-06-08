@@ -20,6 +20,7 @@ public class RacaController {
                 Raca raca = new Raca();
                 raca.setId(rs.getInt(1));
                 raca.setRaca(rs.getString(2));
+                raca.setEspecie(rs.getString(3));
 
                 list.add(raca);
             }

@@ -1,7 +1,9 @@
 package com.fieb.adotefacil.view;
 
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -30,14 +32,18 @@ import java.util.List;
 public class ShareFragment extends Fragment {
     private FragmentShareBinding binding;
     private Spinner spinnerRaca;
+    private Spinner spinnerEspecie;
     private Spinner spinnerCor;
     private EditText txtNome;
     private EditText txtDataNascimento;
     private ArrayAdapter<Raca> spinnerAdapterRaca;
+    private ArrayAdapter<String> spinnerAdapterEspecie;
     private ArrayAdapter<Cor> spinnerAdapterCor;
 
     List<Raca> listaRaca = new ArrayList<>();
     List<Cor> listaCor = new ArrayList<>();
+    // Crie um novo ArrayList para armazenar apenas as raças
+    List<String> listaEspecieApenas = new ArrayList<>();
     Animal animal = new Animal();
     Raca raca = new Raca();
     Cor cor = new Cor();
@@ -65,22 +71,30 @@ public class ShareFragment extends Fragment {
 //            animal.setRaca(raca.getId());
 //            Toast.makeText(getContext(), " NOME:"+animal.getNome(),Toast.LENGTH_LONG).show();
 //            System.out.println("MOBO: "+animal.getNome());}
-            eventoValidarCampos();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                eventoValidarCampos();
+            }
         });
         return root;
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean eventoValidarCampos(){
         txtDataNascimento = binding.editDataNascimentoAnimal;
         txtNome = binding.editNomeAnimal;
 
         String dateFormat = "dd/MM/uuuu";
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter
-                .ofPattern(dateFormat)
-                .withResolverStyle(ResolverStyle.STRICT);
+        DateTimeFormatter dateTimeFormatter = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            dateTimeFormatter = DateTimeFormatter
+                    .ofPattern(dateFormat)
+                    .withResolverStyle(ResolverStyle.STRICT);
+        }
         try {
-            LocalDate date = LocalDate.parse(txtDataNascimento.getText().toString(), dateTimeFormatter);
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                LocalDate date = LocalDate.parse(txtDataNascimento.getText().toString(), dateTimeFormatter);
+            }
         } catch (DateTimeParseException e) {
             System.out.println("ERRO: "+e);
             txtDataNascimento.requestFocus();
@@ -94,12 +108,27 @@ public class ShareFragment extends Fragment {
         return false;
     }
     public void preencheComboboxRaca(){
+
+
+
         spinnerRaca = binding.spinnerRacaAnimal;
+        spinnerEspecie = binding.spinnerEspecieAnimal;
         RacaController racaController = new RacaController();
         listaRaca=racaController.listarRaca(getContext());
+
+        for (Raca racaAnimal : listaRaca) {
+            listaEspecieApenas.add(racaAnimal.getEspecie());
+            System.out.println("PERCORRER: "+racaAnimal.getEspecie());
+        }
+        System.out.println("LISTA: "+listaEspecieApenas);
+
         spinnerAdapterRaca = new ArrayAdapter<Raca>(getContext().getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,listaRaca);
+        spinnerAdapterEspecie = new ArrayAdapter<String>(getContext().getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,listaEspecieApenas);
+        ArrayAdapter<String> especieAdapter = new ArrayAdapter<>(getContext().getApplicationContext(), android.R.layout.simple_spinner_item,listaEspecieApenas);
+        especieAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Configure o adaptador para a ComboBox
         spinnerRaca.setAdapter(spinnerAdapterRaca);
+        spinnerEspecie.setAdapter(spinnerAdapterEspecie);
         // Configurar um ouvinte para a seleção da ComboBox
         spinnerRaca.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

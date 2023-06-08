@@ -3,6 +3,7 @@ package com.fieb.adotefacil.model;
 public class Raca {
     private int id;
     private String raca;
+    private String especie;
 
     public Raca() {
     }
@@ -22,6 +23,14 @@ public class Raca {
 
     public void setRaca(String raca) {
         this.raca = raca;
+    }
+
+    public String getEspecie() {
+        return especie;
+    }
+
+    public void setEspecie(String especie) {
+        this.especie = especie;
     }
 
     @Override
