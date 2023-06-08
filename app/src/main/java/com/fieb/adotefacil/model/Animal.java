@@ -1,18 +1,28 @@
 package com.fieb.adotefacil.model;
 
+import com.fieb.adotefacil.enums.Especie;
+import com.fieb.adotefacil.enums.Porte;
+
+import java.sql.Date;
 import java.util.List;
 
 public class Animal {
-  private  int id;
-  private  int sexo;
-  private  int raca;
-  private  int cor;
-  private String nome;
-  private String resumo;
-  private String observacao;
-  private String fotoAnimal;
+    private  int id;
+    private  int sexo;
+    private  int raca;
+    private  int cor;
+    private String nome;
+    private String resumo;
+    private String observacao;
+    private String fotoAnimal;
+    private Date nascimento;
+    private Porte porte;
+    private Especie especie;
+    private int vacina;
+    private boolean disponivel;
 
-  private List <PetImagem> caminhoFotoAnimal;
+
+    private List <PetImagem> caminhoFotoAnimal;
 
     public Animal() {
     }
@@ -104,6 +114,46 @@ public class Animal {
 
     public void setFotoAnimal(String fotoAnimal) {
         this.fotoAnimal = fotoAnimal;
+    }
+
+    public Porte getPorte() {
+        return porte;
+    }
+
+    public void setPorte(Porte porte) {
+        this.porte = porte;
+    }
+
+    public Especie getEspecie() {
+        return especie;
+    }
+
+    public void setEspecie(Especie especie) {
+        this.especie = especie;
+    }
+
+    public int getVacina() {
+        return vacina;
+    }
+
+    public void setVacina(int vacina) {
+        this.vacina = vacina;
+    }
+
+    public boolean isDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
+    public Date getNascimento() {
+        return nascimento;
+    }
+
+    public void setNascimento(Date nascimento) {
+        this.nascimento = nascimento;
     }
 
     @Override

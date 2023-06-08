@@ -12,32 +12,39 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.fieb.adotefacil.controller.CorController;
 import com.fieb.adotefacil.controller.RacaController;
 import com.fieb.adotefacil.databinding.FragmentShareBinding;
+import com.fieb.adotefacil.enums.Especie;
+import com.fieb.adotefacil.enums.Porte;
 import com.fieb.adotefacil.model.Animal;
 import com.fieb.adotefacil.model.Cor;
 import com.fieb.adotefacil.model.Raca;
+import com.fieb.adotefacil.util.ConverteData;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ShareFragment extends Fragment {
     private FragmentShareBinding binding;
     private Spinner spinnerRaca;
     private Spinner spinnerEspecie;
+    private Spinner spinnerPorte;
     private Spinner spinnerCor;
     private EditText txtNome;
     private EditText txtDataNascimento;
     private ArrayAdapter<Raca> spinnerAdapterRaca;
-    private ArrayAdapter<String> spinnerAdapterEspecie;
+    private ArrayAdapter<Especie> spinnerAdapterEspecie;
+    private ArrayAdapter<Porte> spinnerAdapterPorte;
     private ArrayAdapter<Cor> spinnerAdapterCor;
 
     List<Raca> listaRaca = new ArrayList<>();
@@ -47,7 +54,7 @@ public class ShareFragment extends Fragment {
     Animal animal = new Animal();
     Raca raca = new Raca();
     Cor cor = new Cor();
-
+    private int sexo=0,vacinado=0;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -57,6 +64,8 @@ public class ShareFragment extends Fragment {
         View root = binding.getRoot();
         preencheComboboxRaca();
         preencheComboboxCor();
+        preencheComboboxEspecie();
+        preencheComboboxPorte();
 
         binding.btnSalvar.setOnClickListener(view -> {
 //            System.out.println("AQUI: "+binding.editNomeAnimal.getText());
@@ -71,9 +80,50 @@ public class ShareFragment extends Fragment {
 //            animal.setRaca(raca.getId());
 //            Toast.makeText(getContext(), " NOME:"+animal.getNome(),Toast.LENGTH_LONG).show();
 //            System.out.println("MOBO: "+animal.getNome());}
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                eventoValidarCampos();
+
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//                eventoValidarCampos();
+//            }
+
+            Animal animal = new Animal();
+            animal.setNome(binding.editNomeAnimal.getText().toString());
+            animal.setPorte((Porte) binding.spinnerPorteAnimal.getSelectedItem());
+            animal.setEspecie((Especie) binding.spinnerEspecieAnimal.getSelectedItem());
+
+            int selectedRadioButtonSexo = binding.radioGroupSexo.getCheckedRadioButtonId();
+            if(selectedRadioButtonSexo == binding.radioButtonFemea.getId()){
+                sexo=1;
+            }else   if(selectedRadioButtonSexo == binding.radioButtonMacho.getId()){
+                sexo=2;
+            }else{
+                sexo=0;
             }
+            animal.setSexo(sexo);
+
+            int selectedRadioButtonVacina = binding.radioGroupVacina.getCheckedRadioButtonId();
+            if(selectedRadioButtonVacina == binding.radioButtonVacinadoSim.getId()){
+                vacinado=2;
+            }else   if(selectedRadioButtonVacina == binding.radioButtonVacinadoNao.getId()){
+                vacinado=1;
+            }else{
+                vacinado=0;
+            }
+            animal.setVacina(vacinado);
+
+            ConverteData converteData = new ConverteData();
+            Date dataBanco= converteData.dataBanco(binding.editDataNascimentoAnimal.getText().toString());
+            animal.setNascimento((java.sql.Date) dataBanco);
+
+            animal.setDisponivel(true);
+
+            animal.setRaca(raca.getId());
+            animal.setCor(cor.getId());
+
+            animal.setResumo(binding.editTextResumoMultiLine.getText().toString());
+            animal.setObservacao(binding.editTextObservacaoMultiLine.getText().toString());
+
+            Toast.makeText(getContext(), " RACA:"+animal.getRaca(),Toast.LENGTH_LONG).show();
+
         });
         return root;
 
@@ -109,26 +159,12 @@ public class ShareFragment extends Fragment {
     }
     public void preencheComboboxRaca(){
 
-
-
         spinnerRaca = binding.spinnerRacaAnimal;
-        spinnerEspecie = binding.spinnerEspecieAnimal;
         RacaController racaController = new RacaController();
         listaRaca=racaController.listarRaca(getContext());
-
-        for (Raca racaAnimal : listaRaca) {
-            listaEspecieApenas.add(racaAnimal.getEspecie());
-            System.out.println("PERCORRER: "+racaAnimal.getEspecie());
-        }
-        System.out.println("LISTA: "+listaEspecieApenas);
-
         spinnerAdapterRaca = new ArrayAdapter<Raca>(getContext().getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,listaRaca);
-        spinnerAdapterEspecie = new ArrayAdapter<String>(getContext().getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,listaEspecieApenas);
-        ArrayAdapter<String> especieAdapter = new ArrayAdapter<>(getContext().getApplicationContext(), android.R.layout.simple_spinner_item,listaEspecieApenas);
-        especieAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Configure o adaptador para a ComboBox
         spinnerRaca.setAdapter(spinnerAdapterRaca);
-        spinnerEspecie.setAdapter(spinnerAdapterEspecie);
         // Configurar um ouvinte para a seleção da ComboBox
         spinnerRaca.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -164,6 +200,44 @@ public class ShareFragment extends Fragment {
                 Toast.makeText(getContext(),"EXIBE: "+cor.getId(),Toast.LENGTH_LONG).show();
             }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Nenhuma ação necessária neste caso
+            }
+        });
+    }
+
+    public void preencheComboboxEspecie(){
+
+        spinnerEspecie = binding.spinnerEspecieAnimal;
+        spinnerAdapterEspecie = new ArrayAdapter<Especie>(getContext().getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,Especie.values());
+        spinnerEspecie.setAdapter(spinnerAdapterEspecie);
+        spinnerEspecie.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItem = parent.getItemAtPosition(position).toString();
+                // Faça algo com o item selecionado
+                Toast.makeText(getContext(),"EXIBE: "+spinnerEspecie.getSelectedItem().toString(),Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Nenhuma ação necessária neste caso
+            }
+        });
+    }
+    public void preencheComboboxPorte(){
+
+        spinnerPorte = binding.spinnerPorteAnimal;
+        spinnerAdapterPorte = new ArrayAdapter<Porte>(getContext().getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, Porte.values());
+        spinnerPorte.setAdapter(spinnerAdapterPorte);
+        spinnerPorte.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItem = parent.getItemAtPosition(position).toString();
+                // Faça algo com o item selecionado
+                Toast.makeText(getContext(),"EXIBE: "+spinnerPorte.getSelectedItem().toString(),Toast.LENGTH_LONG).show();
+            }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 // Nenhuma ação necessária neste caso

@@ -22,8 +22,8 @@ public class ConexaoSqlServer {
             //Verificar se o driver de Conexão está importada no projeto
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
             //conexão de teste
-            conn=DriverManager.getConnection("jdbc:jtds:sqlserver://adocao2023.mssql.somee.com;databaseName=adocao2023;" +
-                    "user=edsonsousa;password=98232603;");
+            conn=DriverManager.getConnection("jdbc:jtds:sqlserver://adocaofieb2023.mssql.somee.com;databaseName=adocaofieb2023;" +
+                    "user=rm87949edson_SQLLogin_2;password=oibzq36kuv;");
 
         }catch (android.database.SQLException e){
             //SQLException
