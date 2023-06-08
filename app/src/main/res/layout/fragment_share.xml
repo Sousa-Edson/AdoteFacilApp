@@ -98,6 +98,28 @@
                 android:ems="10"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
+            <TextView
+                android:id="@+id/textPorteLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:text="Porte do animal"
+                android:background="@color/fundo_escuro_claro"
+                android:textColor="@color/white" />
+            <Spinner
+                android:id="@+id/spinnerPorteAnimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:height="50dp"
+                android:labelFor="@id/textRacaAnimalLabel"
+                android:padding="5dp"
+                android:ems="10"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textDataNascimentoAnimalLabel"
@@ -108,7 +130,6 @@
                 android:padding="5dp"
                 android:text="Data nascimento animal"
                 android:background="@color/fundo_escuro_claro"
-
                 android:textColor="@color/white" />
 
             <EditText
@@ -123,6 +144,39 @@
                 android:textSize="20sp"
                 android:inputType="date" />
             <TextView
+                android:id="@+id/textSexoLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:text="Sexo do animal"
+                android:background="@color/fundo_escuro_claro"
+                android:textColor="@color/white" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <RadioButton
+                    android:id="@+id/radioButtonMacho"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Macho" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonFemea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Femêa" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonIndefinido"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Indefinido" />
+            </RadioGroup>
+
+            <TextView
                 android:id="@+id/textResumoLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -131,8 +185,8 @@
                 android:padding="5dp"
                 android:text="Resumo do animal"
                 android:background="@color/fundo_escuro_claro"
-
                 android:textColor="@color/white" />
+
 
             <EditText
                 android:id="@+id/editTextResumoMultiLine"
@@ -142,6 +196,30 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:gravity="start|top"
+                android:hint="Descreva o animal, comportamento , rotina , etc..."
+                android:inputType="textMultiLine" />
+
+            <TextView
+                android:id="@+id/textObservacaoLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:text="Observações gerais"
+                android:background="@color/fundo_escuro_claro"
+                android:textColor="@color/white" />
+
+
+            <EditText
+                android:id="@+id/editTextObservacaoMultiLine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="start|top"
+                android:hint="Observações gerais ,situação atual ,alguma caracteristica em particular , etc..."
                 android:inputType="textMultiLine" />
 
             <Button
