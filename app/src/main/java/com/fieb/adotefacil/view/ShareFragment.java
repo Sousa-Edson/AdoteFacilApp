@@ -16,6 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.fieb.adotefacil.controller.AnimalController;
 import com.fieb.adotefacil.controller.CorController;
 import com.fieb.adotefacil.controller.RacaController;
 import com.fieb.adotefacil.databinding.FragmentShareBinding;
@@ -25,6 +26,7 @@ import com.fieb.adotefacil.model.Animal;
 import com.fieb.adotefacil.model.Cor;
 import com.fieb.adotefacil.model.Raca;
 import com.fieb.adotefacil.util.ConverteData;
+import com.fieb.adotefacil.view.login_cadastro.Cadastro;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -123,6 +125,15 @@ public class ShareFragment extends Fragment {
             animal.setObservacao(binding.editTextObservacaoMultiLine.getText().toString());
 
             Toast.makeText(getContext(), " RACA:"+animal.getRaca(),Toast.LENGTH_LONG).show();
+
+            AnimalController animalController = new AnimalController();
+            int resposta =  animalController.criarAnimal(animal,getContext());
+            if (resposta > 0) {
+                Toast.makeText(getContext(), "Cadastro realizado com Sucesso!", Toast.LENGTH_LONG).show();
+
+            } else {
+                Toast.makeText(getContext(), "Error no Cadastro!", Toast.LENGTH_LONG).show();
+            }
 
         });
         return root;

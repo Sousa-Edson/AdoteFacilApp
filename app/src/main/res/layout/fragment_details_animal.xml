@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
-    tools:context=".DetailsEventFragment">
+    tools:context=".DetailsGalleryFragment">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -54,6 +54,8 @@
                 android:textColor="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/fotoAnimalPrincipal"
+                android:background="@color/fundo_escuro_claro"
+                android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@+id/nomeAnimal" />
 
 
@@ -72,20 +74,22 @@
                 app:layout_constraintTop_toBottomOf="@+id/descricaoAnimalLabel" />
 
             <TextView
-                android:id="@+id/resumoAnimalLabel"
+                android:id="@+id/observacaoAnimalLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
-                android:text="Resumo do animal"
+                android:text="Observações gerais"
                 android:textSize="16sp"
                 android:textColor="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/fotoAnimalPrincipal"
+                android:background="@color/fundo_escuro_claro"
+                android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@+id/descricaoAnimal" />
             <TextView
-                android:id="@+id/resumoAnimal"
+                android:id="@+id/observacaoAnimal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -96,10 +100,40 @@
                 android:textColor="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/fotoAnimalPrincipal"
-                app:layout_constraintTop_toBottomOf="@+id/resumoAnimalLabel" />
+                app:layout_constraintTop_toBottomOf="@+id/observacaoAnimalLabel" />
+
+            <TextView
+                android:id="@+id/idadeAnimalLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="Idade"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fotoAnimalPrincipal"
+                android:background="@color/fundo_escuro_claro"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/observacaoAnimal" />
+
+            <TextView
+                android:id="@+id/idadeAnimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="1 ano e 2 meses"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fotoAnimalPrincipal"
+                app:layout_constraintTop_toBottomOf="@+id/idadeAnimalLabel" />
 
 
-        <TextView
+            <TextView
             android:id="@+id/sexoAnimal"
             android:layout_width="match_parent"
             android:layout_height="31dp"
@@ -107,12 +141,25 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:gravity="right|center"
-            android:text="12 de maio de 2023 "
+            android:text="Macho "
             android:textColor="@android:color/white"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/fotoAnimalPrincipal"
-            app:layout_constraintTop_toBottomOf="@+id/resumoAnimal" />
+            app:layout_constraintTop_toBottomOf="@+id/idadeAnimal" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewFoto"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sexoAnimal" />
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -125,7 +172,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 app:layout_constraintStart_toStartOf="@+id/fotoAnimalPrincipal"
-                app:layout_constraintTop_toBottomOf="@+id/sexoAnimal"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerViewFoto"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

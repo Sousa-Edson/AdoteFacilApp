@@ -56,6 +56,7 @@ public class DetailsEventFragment extends Fragment {
         return root;
     }
 
+
     public void recebe(){
         txtEvento=binding.nomeEvento;
         txtDescricao=binding.descricaoEvento;
