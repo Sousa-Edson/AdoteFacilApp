@@ -154,6 +154,8 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
+                android:background="@color/fundo_escuro_claro"
+                android:textStyle="bold"
                 android:text="Galeria de fotos deste PET"
                 android:textSize="16sp"
                 android:textColor="@android:color/white"
