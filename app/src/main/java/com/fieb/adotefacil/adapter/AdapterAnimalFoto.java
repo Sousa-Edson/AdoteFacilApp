@@ -26,7 +26,6 @@ public class AdapterAnimalFoto extends RecyclerView.Adapter<AdapterAnimalFoto.Fo
     private List<PetImagem> petImagems;
     private ArrayList<Uri> fotos;
     public AdapterAnimalFoto(DetailsGalleryFragment detailsGalleryFragment, List<PetImagem> petImagems) {
-        System.out.println("AQUI EM ADAPTER : "+petImagems.get(0).getCaminhoImagem());
         this.petImagems = petImagems;
     }
 
@@ -34,26 +33,26 @@ public class AdapterAnimalFoto extends RecyclerView.Adapter<AdapterAnimalFoto.Fo
     @NonNull
     @Override
     public AdapterAnimalFoto.FotoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        System.out.println("AQUI EM ADAPTER 2: "+petImagems.get(0).getCaminhoImagem());
         View itemLista = LayoutInflater.from(parent.getContext()).inflate(R.layout.animal_foto_item,parent,false);
         return new FotoViewHolder(itemLista);
     }
 
     @Override
     public void onBindViewHolder(@NonNull AdapterAnimalFoto.FotoViewHolder holder, int position) {
-        System.out.println("AQUI EM ADAPTER 3 : "+petImagems.get(position).getCaminhoImagem());
-        System.out.println("VENDO O TAMANHO DE UMA FORMA: "+petImagems.size());
-
         PetImagem fotos = petImagems.get(position);
-        String imageUrl= fotos.getCaminhoImagem();
-//        imageUrl="https://res.cloudinary.com/daieys39b/image/upload/v1686251907/postagem/sem-imagem_owc6zt.jpg";
+        String imageUrl=null;
+        try {
+            imageUrl= petImagems.get(0).getCaminhoImagem().toString();
+        }catch (Exception e){
+            System.out.println("ERRO AO CARREGAR IMAGEM: "+e.getMessage());
+            imageUrl="https://res.cloudinary.com/daieys39b/image/upload/v1686251907/postagem/sem-imagem_owc6zt.jpg";
+        }
         Glide.with(holder.itemView.getContext()).load(imageUrl).into(holder.foto);
         holder.texto.setText("-_-");
     }
 
     @Override
     public int getItemCount() {
-        System.out.println("TAMANHO: "+petImagems.size());
         return petImagems.size();
     }
 

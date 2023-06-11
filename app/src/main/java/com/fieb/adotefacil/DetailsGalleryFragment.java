@@ -32,7 +32,7 @@ import java.util.List;
 
 public class DetailsGalleryFragment extends Fragment {
     private FragmentDetailsAnimalBinding binding;
-    TextView txtAnimal, txtSexo, txtDescricao, txtObservacao,txtIdade;
+    TextView txtAnimal, txtSexo, txtDescricao, txtObservacao,txtIdade,txtGaleriaLabel;
     ImageView txtCaminhoFoto;
     RecyclerView recyclerView_Foto  ;
     Animal animal = new Animal();
@@ -55,6 +55,7 @@ public class DetailsGalleryFragment extends Fragment {
         txtSexo=binding.sexoAnimal;
         txtIdade=binding.idadeAnimal;
         recyclerView_Foto = binding.recyclerViewFoto;
+        txtGaleriaLabel = binding.recyclerViewFotoLabel;
         carregaTela();
 //        recebe();
 //        preencheTela();
@@ -62,7 +63,7 @@ public class DetailsGalleryFragment extends Fragment {
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void carregaTela (){
-int idAnimal=0;
+        int idAnimal=0;
         if (animal != null) {
             txtAnimal.setText(animal.getNome().toString());
             txtDescricao.setText(animal.getResumo().toString());
@@ -91,9 +92,9 @@ int idAnimal=0;
 
             AdapterAnimalFoto adapterAnimalFoto = new AdapterAnimalFoto(DetailsGalleryFragment.this, listaImagem);
             recyclerView_Foto.setAdapter(adapterAnimalFoto);
-
-
-            System.out.println("EXIBINDO EM DETAILSGALLERYFRAGMENT _-_ "+listaImagem.get(0).getCaminhoImagem());
+            if(listaImagem.size()==0) {
+                txtGaleriaLabel.setVisibility(View.GONE);
+            }
         }
     }
 
