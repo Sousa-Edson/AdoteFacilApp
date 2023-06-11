@@ -9,11 +9,17 @@
         android:id="@+id/fotoAnimalBloco"
         android:layout_width="match_parent"
         android:layout_height="160dp"
-        android:scaleType="center"
         android:src="@drawable/amigoanimal"
         android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        />
+    <TextView
+        android:id="@+id/textoAnimalBloco"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/fotoAnimalBloco"
+        android:text=" "
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
