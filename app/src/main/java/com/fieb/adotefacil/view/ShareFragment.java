@@ -124,7 +124,7 @@ public class ShareFragment extends Fragment {
             animal.setResumo(binding.editTextResumoMultiLine.getText().toString());
             animal.setObservacao(binding.editTextObservacaoMultiLine.getText().toString());
 
-            Toast.makeText(getContext(), " RACA:"+animal.getRaca(),Toast.LENGTH_LONG).show();
+          //  Toast.makeText(getContext(), " RACA:"+animal.getRaca(),Toast.LENGTH_LONG).show();
 
             AnimalController animalController = new AnimalController();
             int resposta =  animalController.criarAnimal(animal,getContext());
@@ -208,7 +208,7 @@ public class ShareFragment extends Fragment {
                 cor.setCor(listaCor.get(position).getCor());
                 cor.setId(listaCor.get(position).getId());
                 // Faça algo com o item selecionado
-                Toast.makeText(getContext(),"EXIBE: "+cor.getId(),Toast.LENGTH_LONG).show();
+              //  Toast.makeText(getContext(),"EXIBE: "+cor.getId(),Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -228,7 +228,7 @@ public class ShareFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItem = parent.getItemAtPosition(position).toString();
                 // Faça algo com o item selecionado
-                Toast.makeText(getContext(),"EXIBE: "+spinnerEspecie.getSelectedItem().toString(),Toast.LENGTH_LONG).show();
+                //Toast.makeText(getContext(),"EXIBE: "+spinnerEspecie.getSelectedItem().toString(),Toast.LENGTH_LONG).show();
             }
 
             @Override
