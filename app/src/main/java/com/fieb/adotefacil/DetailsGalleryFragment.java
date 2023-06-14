@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,6 +36,7 @@ public class DetailsGalleryFragment extends Fragment {
     TextView txtAnimal, txtSexo, txtDescricao, txtObservacao,txtIdade,txtGaleriaLabel;
     ImageView txtCaminhoFoto;
     RecyclerView recyclerView_Foto  ;
+    Button botao;
     Animal animal = new Animal();
 
     public DetailsGalleryFragment(Animal animal) {
@@ -59,6 +61,8 @@ public class DetailsGalleryFragment extends Fragment {
         carregaTela();
 //        recebe();
 //        preencheTela();
+
+
         return root;
     }
     @RequiresApi(api = Build.VERSION_CODES.O)

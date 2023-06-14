@@ -55,7 +55,7 @@ public class AdapterGaleria extends RecyclerView.Adapter<AdapterGaleria.EventoVi
 
         holder.nome.setText(animais.get(position).getNome());
         holder.descricao.setText(animais.get(position).getResumo());
-        holder.sexo.setText(animais.get(position).getSexo() ==2 ?"Macho":animais.get(position).getSexo() ==1 ?"Femea":"Indefinido");
+        holder.sexo.setText(animais.get(position).getSexo() ==2 ?"Macho":animais.get(position).getSexo() ==1 ?"Fêmea":"Indefinido");
 
 //        holder.foto.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -112,7 +112,7 @@ public class AdapterGaleria extends RecyclerView.Adapter<AdapterGaleria.EventoVi
                         .replace(R.id.fragment_container, detailsEventFragment)
                         .addToBackStack(null)
                         .commit();
-                Toast.makeText(v.getContext(), "Clicou em: " +animal.getId(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), "Você selecionou o animal: " +animal.getId(), Toast.LENGTH_SHORT).show();
             }
         });
     }

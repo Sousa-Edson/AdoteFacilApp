@@ -184,7 +184,7 @@ public class ShareFragment extends Fragment {
                 raca.setRaca(listaRaca.get(position).getRaca());
                 raca.setId(listaRaca.get(position).getId());
                 // Faça algo com o item selecionado
-                Toast.makeText(getContext(),"EXIBE: "+raca.getId(),Toast.LENGTH_LONG).show();
+               // Toast.makeText(getContext(),"EXIBE: "+raca.getId(),Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -247,7 +247,7 @@ public class ShareFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItem = parent.getItemAtPosition(position).toString();
                 // Faça algo com o item selecionado
-                Toast.makeText(getContext(),"EXIBE: "+spinnerPorte.getSelectedItem().toString(),Toast.LENGTH_LONG).show();
+               // Toast.makeText(getContext(),"EXIBE: "+spinnerPorte.getSelectedItem().toString(),Toast.LENGTH_LONG).show();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
