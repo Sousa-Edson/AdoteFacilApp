@@ -10,7 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +27,7 @@ import com.fieb.adotefacil.model.Animal;
 import com.fieb.adotefacil.model.Evento;
 import com.fieb.adotefacil.model.PetImagem;
 import com.fieb.adotefacil.util.ConverteData;
+import com.fieb.adotefacil.view.FavoriteFragment;
 import com.fieb.adotefacil.view.HomeFragment;
 
 import java.util.ArrayList;
@@ -58,11 +61,25 @@ public class DetailsGalleryFragment extends Fragment {
         txtIdade=binding.idadeAnimal;
         recyclerView_Foto = binding.recyclerViewFoto;
         txtGaleriaLabel = binding.recyclerViewFotoLabel;
+        botao = binding.botaoAdotar;
         carregaTela();
 //        recebe();
 //        preencheTela();
 
+        binding.botaoAdotar.setOnClickListener(view ->{
+                System.out.println("CLICOU AQUI");
+                FavoriteFragment favoriteFragment = new FavoriteFragment();
+                // Obtém o FragmentManager da Activity
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        //((AppCompatActivity)view.getContext()).getSupportFragmentManager();
 
+                // Inicia uma transação de Fragment e substitui o Fragment atual pelo novo Fragment
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, favoriteFragment)
+                        .addToBackStack(null)
+                        .commit();
+
+        });
         return root;
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
