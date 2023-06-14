@@ -29,6 +29,33 @@ tools:context=".view.FavoriteFragment">
 
 
         <TextView
+            android:id="@+id/textPrimeiroPassoLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:padding="5dp"
+            android:text="Ficamos muito felizes por você ter dado o primeiro passo para adotar um animal."
+            android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/textResponderPerguntaLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:padding="5dp"
+            android:text="Aqui você irá responder algumas perguntas iniciais para que a ONG/protetor parceiro possa te conhecer melhor e dar agilidade ao processo de adoção."
+            android:textColor="@color/white" />
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/white"
+            android:text="Declaro que sou maior de 18 anos, li e estou
+            ciente das informações passadas e de acordo em compartilhar meus dados para fins de contato por uma ONG/protetor parceiro do sistema Adote facil. Entendo que o formulário capta o interesse em ser contactado pela ONG/protetor parceiro para entrevista e não garante reserva do pet caso seja identificado como disponível no sistema." />
+        <TextView
             android:id="@+id/textSexoLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,6 +65,8 @@ tools:context=".view.FavoriteFragment">
             android:text="Sexo do animal"
             android:background="@color/fundo_escuro_claro"
             android:textColor="@color/white" />
+
+
 
         <RadioGroup
             android:id="@+id/radioGroupSexo"
