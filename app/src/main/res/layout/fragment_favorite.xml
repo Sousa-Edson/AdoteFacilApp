@@ -1,151 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="@drawable/bg_cor_fundo"
-tools:context=".view.FavoriteFragment">
-
-<ScrollView
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_cor_fundo"
+    tools:context=".view.FavoriteFragment">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textTitulo"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:gravity="center"
-            android:text="Formulario de intenção"
-            android:textColor="@color/white"
-            android:textSize="40sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
-
-        <TextView
-            android:id="@+id/textPrimeiroPassoLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:padding="5dp"
-            android:text="Ficamos muito felizes por você ter dado o primeiro passo para adotar um animal."
-            android:textColor="@color/white" />
-        <TextView
-            android:id="@+id/textResponderPerguntaLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:padding="5dp"
-            android:text="Aqui você irá responder algumas perguntas iniciais para que a ONG/protetor parceiro possa te conhecer melhor e dar agilidade ao processo de adoção."
-            android:textColor="@color/white" />
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:textColor="@color/white"
-            android:text="Declaro que sou maior de 18 anos, li e estou
-            ciente das informações passadas e de acordo em compartilhar meus dados para fins de contato por uma ONG/protetor parceiro do sistema Adote facil. Entendo que o formulário capta o interesse em ser contactado pela ONG/protetor parceiro para entrevista e não garante reserva do pet caso seja identificado como disponível no sistema." />
-        <TextView
-            android:id="@+id/textSexoLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:padding="5dp"
-            android:text="Sexo do animal"
-            android:background="@color/fundo_escuro_claro"
-            android:textColor="@color/white" />
-
-
-
-        <RadioGroup
-            android:id="@+id/radioGroupSexo"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" >
-
-            <RadioButton
-                android:id="@+id/radioButtonMacho"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="10dp"
-                android:text="Macho" />
-
-            <RadioButton
-                android:id="@+id/radioButtonFemea"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="10dp"
-                android:text="Fêmea" />
-
-            <RadioButton
-                android:id="@+id/radioButtonIndefinido"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="10dp"
-                android:text="Indefinido" />
-
-        </RadioGroup>
-        <TextView
-            android:id="@+id/textVacinadoLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:padding="5dp"
-            android:text="Animal vacinado?"
-            android:background="@color/fundo_escuro_claro"
-            android:textColor="@color/white" />
-        <RadioGroup
-            android:id="@+id/radioGroupVacina"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" >
-
-            <RadioButton
-                android:id="@+id/radioButtonVacinadoSim"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="10dp"
-                android:text="Sim" />
-
-            <RadioButton
-                android:id="@+id/radioButtonVacinadoNao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="10dp"
-                android:text="Não" />
-
-            <RadioButton
-                android:id="@+id/radioButtonVacinadoIndefinido"
+            <TextView
+                android:id="@+id/textTitulo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="10dp"
-                android:text="Não sei informar" />
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="center"
+                android:text="Formulario de intenção"
+                android:textColor="@color/white"
+                android:textSize="40sp"
+                android:textStyle="bold" />
 
-        </RadioGroup>
 
-        <Button
-            android:id="@+id/btnSalvar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:text="Adotar" />
-    </LinearLayout>
-</ScrollView>
+            <TextView
+                android:id="@+id/textPrimeiroPassoLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:text="Ficamos muito felizes por você ter dado o primeiro passo para adotar um animal."
+                android:textColor="@color/white" />
+            <TextView
+                android:id="@+id/textPrecisamosDadosPessoaisLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:text="Precisaremos de alguns dados pessoais para que possam entrar em contato com você, além de saber um pouco sobre a sua casa, sua família, estrutura, entre outras informações."
+                android:textColor="@color/white" />
+            <TextView
+                android:id="@+id/textResponderPerguntaLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:text="Aqui você irá responder algumas perguntas iniciais para que a ONG/protetor parceiro possa te conhecer melhor e dar agilidade ao processo de adoção."
+                android:textColor="@color/white" />
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/white"
+                android:text="Declaro que sou maior de 18 anos, li e estou
+            ciente das informações passadas e de acordo em compartilhar meus dados para fins de contato por uma ONG/protetor parceiro do sistema Adote facil. Entendo que o formulário capta o interesse em ser contactado pela ONG/protetor parceiro para entrevista e não garante reserva do pet caso seja identificado como disponível no sistema." />
+            <TextView
+                android:id="@+id/textQuestionarioLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:text="Questionário"
+                android:background="@color/fundo_escuro_claro"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/textCasaAlugadaLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:text="Sua residência é própria ou alugada?"
+                android:background="@color/fundo_escuro_claro"
+                android:textColor="@color/white" />
+
+
+
+            <RadioGroup
+                android:id="@+id/radioCasaAlugadaGroup"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" >
+
+                <RadioButton
+                    android:id="@+id/radioButtonCasaPropria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:text="Própria" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonCasaAlugada"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:text="Alugada" />
+
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/textCasaApartamentoLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:text="Mora em apartamento ou casa?"
+                android:background="@color/fundo_escuro_claro"
+                android:textColor="@color/white" />
+
+
+
+            <RadioGroup
+                android:id="@+id/radioCasaApartamentoGroup"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" >
+
+                <RadioButton
+                    android:id="@+id/radioButtonCasa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:text="Casa" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonApartamento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:text="Apartamento" />
+
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/textVacinadoLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:text="Animal vacinado?"
+                android:background="@color/fundo_escuro_claro"
+                android:textColor="@color/white" />
+            <RadioGroup
+                android:id="@+id/radioGroupVacina"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" >
+
+                <RadioButton
+                    android:id="@+id/radioButtonVacinadoSim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:text="Sim" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonVacinadoNao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:text="Não" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonVacinadoIndefinido"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="10dp"
+                    android:text="Não sei informar" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btnSalvar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="Adotar" />
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>
