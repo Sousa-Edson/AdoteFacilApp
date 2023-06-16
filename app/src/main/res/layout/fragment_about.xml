@@ -103,7 +103,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:gravity="center"
-                android:text="Adotar um animal é acrescentar a sua vida motiovs para sorrir."
+                android:text="Adotar um animal é acrescentar a sua vida motivos para sorrir."
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:layout_marginTop="30dp"
