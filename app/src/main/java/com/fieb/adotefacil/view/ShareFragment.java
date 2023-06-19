@@ -1,10 +1,12 @@
 package com.fieb.adotefacil.view;
 
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.fieb.adotefacil.R;
 import com.fieb.adotefacil.controller.AnimalController;
 import com.fieb.adotefacil.controller.CorController;
 import com.fieb.adotefacil.controller.RacaController;
@@ -27,6 +30,7 @@ import com.fieb.adotefacil.model.Cor;
 import com.fieb.adotefacil.model.Raca;
 import com.fieb.adotefacil.util.ConverteData;
 import com.fieb.adotefacil.view.login_cadastro.Cadastro;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -72,69 +76,71 @@ public class ShareFragment extends Fragment {
         binding.btnSalvar.setOnClickListener(view -> {
 //            System.out.println("AQUI: "+binding.editNomeAnimal.getText());
 //            nome = binding.editNomeAnimal;
-//            if(nome.getText().length() < 1){
-//                nome.requestFocus();
-//                Snackbar snackBar = Snackbar.make(view, "Nome é obrigatório!", Snackbar.LENGTH_SHORT);
-//                snackBar.setBackgroundTint(Color.RED);
-//                snackBar.show();
-//            }else{
-//            animal.setNome(nome.getText().toString());
-//            animal.setRaca(raca.getId());
-//            Toast.makeText(getContext(), " NOME:"+animal.getNome(),Toast.LENGTH_LONG).show();
-//            System.out.println("MOBO: "+animal.getNome());}
+            if(binding.editNomeAnimal.getText().length() < 1){
+                Snackbar snackBar = Snackbar.make(view, "Campo é obrigatório!", Snackbar.LENGTH_SHORT);
+                snackBar.setBackgroundTint(Color.RED);
+                snackBar.show();
+            }else {
 
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//                eventoValidarCampos();
-//            }
 
-            Animal animal = new Animal();
-            animal.setNome(binding.editNomeAnimal.getText().toString());
-            animal.setPorte((Porte) binding.spinnerPorteAnimal.getSelectedItem());
-            animal.setEspecie((Especie) binding.spinnerEspecieAnimal.getSelectedItem());
+                Animal animal = new Animal();
+                animal.setNome(binding.editNomeAnimal.getText().toString());
+                animal.setPorte((Porte) binding.spinnerPorteAnimal.getSelectedItem());
+                animal.setEspecie((Especie) binding.spinnerEspecieAnimal.getSelectedItem());
 
-            int selectedRadioButtonSexo = binding.radioGroupSexo.getCheckedRadioButtonId();
-            if(selectedRadioButtonSexo == binding.radioButtonFemea.getId()){
-                sexo=1;
-            }else   if(selectedRadioButtonSexo == binding.radioButtonMacho.getId()){
-                sexo=2;
-            }else{
-                sexo=0;
+                int selectedRadioButtonSexo = binding.radioGroupSexo.getCheckedRadioButtonId();
+                if (selectedRadioButtonSexo == binding.radioButtonFemea.getId()) {
+                    sexo = 1;
+                } else if (selectedRadioButtonSexo == binding.radioButtonMacho.getId()) {
+                    sexo = 2;
+                } else {
+                    sexo = 0;
+                }
+                animal.setSexo(sexo);
+
+                int selectedRadioButtonVacina = binding.radioGroupVacina.getCheckedRadioButtonId();
+                if (selectedRadioButtonVacina == binding.radioButtonVacinadoSim.getId()) {
+                    vacinado = 2;
+                } else if (selectedRadioButtonVacina == binding.radioButtonVacinadoNao.getId()) {
+                    vacinado = 1;
+                } else {
+                    vacinado = 0;
+                }
+                animal.setVacina(vacinado);
+
+                ConverteData converteData = new ConverteData();
+                Date dataBanco = converteData.dataBanco(binding.editDataNascimentoAnimal.getText().toString());
+                animal.setNascimento((java.sql.Date) dataBanco);
+
+                animal.setDisponivel(true);
+
+                animal.setRaca(raca.getId());
+                animal.setCor(cor.getId());
+
+                animal.setResumo(binding.editTextResumoMultiLine.getText().toString());
+                animal.setObservacao(binding.editTextObservacaoMultiLine.getText().toString());
+
+                //  Toast.makeText(getContext(), " RACA:"+animal.getRaca(),Toast.LENGTH_LONG).show();
+
+                AnimalController animalController = new AnimalController();
+                int resposta = animalController.criarAnimal(animal, getContext());
+                if (resposta > 0) {
+                    Toast.makeText(getContext(), "Cadastro realizado com Sucesso!", Toast.LENGTH_LONG).show();
+                    GalleryFragment galleryFragment = new GalleryFragment();
+                    // Obtém o FragmentManager da Activity
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    //((AppCompatActivity)view.getContext()).getSupportFragmentManager();
+
+                    // Inicia uma transação de Fragment e substitui o Fragment atual pelo novo Fragment
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, galleryFragment)
+                            .addToBackStack(null)
+                            .commit();
+
+                } else {
+                    Toast.makeText(getContext(), "Error no Cadastro!", Toast.LENGTH_LONG).show();
+                }
             }
-            animal.setSexo(sexo);
-
-            int selectedRadioButtonVacina = binding.radioGroupVacina.getCheckedRadioButtonId();
-            if(selectedRadioButtonVacina == binding.radioButtonVacinadoSim.getId()){
-                vacinado=2;
-            }else   if(selectedRadioButtonVacina == binding.radioButtonVacinadoNao.getId()){
-                vacinado=1;
-            }else{
-                vacinado=0;
-            }
-            animal.setVacina(vacinado);
-
-            ConverteData converteData = new ConverteData();
-            Date dataBanco= converteData.dataBanco(binding.editDataNascimentoAnimal.getText().toString());
-            animal.setNascimento((java.sql.Date) dataBanco);
-
-            animal.setDisponivel(true);
-
-            animal.setRaca(raca.getId());
-            animal.setCor(cor.getId());
-
-            animal.setResumo(binding.editTextResumoMultiLine.getText().toString());
-            animal.setObservacao(binding.editTextObservacaoMultiLine.getText().toString());
-
-          //  Toast.makeText(getContext(), " RACA:"+animal.getRaca(),Toast.LENGTH_LONG).show();
-
-            AnimalController animalController = new AnimalController();
-            int resposta =  animalController.criarAnimal(animal,getContext());
-            if (resposta > 0) {
-                Toast.makeText(getContext(), "Cadastro realizado com Sucesso!", Toast.LENGTH_LONG).show();
-
-            } else {
-                Toast.makeText(getContext(), "Error no Cadastro!", Toast.LENGTH_LONG).show();
-            }
-
         });
         return root;
 
