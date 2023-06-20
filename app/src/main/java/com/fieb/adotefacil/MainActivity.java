@@ -14,7 +14,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -26,7 +25,7 @@ import com.fieb.adotefacil.view.HomeFragment;
 import com.fieb.adotefacil.view.SettingsFragment;
 import com.fieb.adotefacil.view.ShareFragment;
 import com.google.android.material.navigation.NavigationView;
-import android.widget.TextView;
+
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 

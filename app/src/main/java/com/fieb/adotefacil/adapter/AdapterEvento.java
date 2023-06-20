@@ -44,6 +44,11 @@ public class AdapterEvento extends RecyclerView.Adapter<AdapterEvento.EventoView
         String imageUrl= fotos.getCamingoFotoEvento();
         Glide.with(holder.itemView.getContext()).load(imageUrl).into(holder.foto);
 
+//        String imagemUrl = "https://res.cloudinary.com/duatdkkb3/image/upload/v1686005245/postagem/a71c4a6e-42aa-42eb-8ef2-ba46c07b5891.jpg"; // Substitua pela sua URL
+//        Glide.with(holder.itemView.getContext())
+//                .load(imagemUrl)
+//                .into(holder.foto);
+
         holder.nome.setText(eventos.get(position).getNomeEvento());
         holder.descricao.setText(eventos.get(position).getDescricaoEvento());
         holder.data.setText(eventos.get(position).getDataEvento());
