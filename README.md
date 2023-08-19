@@ -1,5 +1,7 @@
 # AdoteFacilApp
 
+![Adote facil APP](/home/edson/Projetos/AdoteFacilApp/imagens/imagem-app1.png)
+
 O **Adote Fácil App** é um projeto de conclusão de curso (TCC) desenvolvido no Android Studio, focado em simplificar o processo de adoção de animais. Com recursos intuitivos e funcionais, o aplicativo visa promover a conexão entre animais que precisam de um lar amoroso e adotantes responsáveis.
 
 ## Recursos Principais
@@ -27,10 +29,23 @@ O **Adote Fácil App** é um projeto de conclusão de curso (TCC) desenvolvido n
 ## Contribuição
 
 Este projeto foi desenvolvido como parte do nosso TCC e visa aprimorar a experiência de adoção de animais. Caso encontre problemas ou tenha sugestões de melhoria, sinta-se à vontade para abrir issues ou enviar pull requests.
- 
+
 ## Contato
 
 Para mais informações, entre em contato conosco através do e-mail: [edson3711.es@gmail.com](mailto:edson3711.es@gmail.com).
 
+## Imagens
+
+![Adote facil imagem01](/home/edson/Projetos/AdoteFacilApp/imagens/imagem-app1.png)
+
+![Adote facil imagem01](/home/edson/Projetos/AdoteFacilApp/imagens/imagem-app2.png)
+
+![Adote facil imagem01](/home/edson/Projetos/AdoteFacilApp/imagens/imagem-app3.png)
+
+![Adote facil imagem01](/home/edson/Projetos/AdoteFacilApp/imagens/imagem-app4.png)
+
+![Adote facil imagem01](/home/edson/Projetos/AdoteFacilApp/imagens/imagem-app5.png)
+
+![Adote facil imagem01](/home/edson/Projetos/AdoteFacilApp/imagens/imagem-app6.png)
+
 ---
- 
