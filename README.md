@@ -1,6 +1,6 @@
 # AdoteFacilApp
 
-![Adote facil APP](/home/edson/Projetos/AdoteFacilApp/imagens/imagem-app1.png)
+![Adote facil APP](https://github.com/Sousa-Edson/AdoteFacilApp/blob/master/imagens/imagem-app1.png)
 
 O **Adote Fácil App** é um projeto de conclusão de curso (TCC) desenvolvido no Android Studio, focado em simplificar o processo de adoção de animais. Com recursos intuitivos e funcionais, o aplicativo visa promover a conexão entre animais que precisam de um lar amoroso e adotantes responsáveis.
 
@@ -36,16 +36,16 @@ Para mais informações, entre em contato conosco através do e-mail: [edson3711
 
 ## Imagens
 
-![Adote facil imagem01](/home/edson/Projetos/AdoteFacilApp/imagens/imagem-app1.png)
+![Adote facil imagem01](https://github.com/Sousa-Edson/AdoteFacilApp/blob/master/imagens/imagem-app1.png)
 
-![Adote facil imagem01](/home/edson/Projetos/AdoteFacilApp/imagens/imagem-app2.png)
+![Adote facil imagem01](https://github.com/Sousa-Edson/AdoteFacilApp/blob/master/imagens/imagem-app2.png)
 
-![Adote facil imagem01](/home/edson/Projetos/AdoteFacilApp/imagens/imagem-app3.png)
+![Adote facil imagem01](https://github.com/Sousa-Edson/AdoteFacilApp/blob/master/imagens/imagem-app3.png)
 
-![Adote facil imagem01](/home/edson/Projetos/AdoteFacilApp/imagens/imagem-app4.png)
+![Adote facil imagem01](https://github.com/Sousa-Edson/AdoteFacilApp/blob/master/imagens/imagem-app4.png)
 
-![Adote facil imagem01](/home/edson/Projetos/AdoteFacilApp/imagens/imagem-app5.png)
+![Adote facil imagem01](https://github.com/Sousa-Edson/AdoteFacilApp/blob/master/imagens/imagem-app5.png)
 
-![Adote facil imagem01](/home/edson/Projetos/AdoteFacilApp/imagens/imagem-app6.png)
+![Adote facil imagem01](https://github.com/Sousa-Edson/AdoteFacilApp/blob/master/imagens/imagem-app6.png)
 
 ---
